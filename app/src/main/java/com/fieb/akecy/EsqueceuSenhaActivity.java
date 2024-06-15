@@ -2,9 +2,9 @@ package com.fieb.akecy;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
 import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class EsqueceuSenhaActivity extends AppCompatActivity {
 
@@ -15,12 +15,7 @@ public class EsqueceuSenhaActivity extends AppCompatActivity {
 
         ImageButton voltarButton = findViewById(R.id.esque_voltar);
 
-        voltarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                telaLogin();
-            }
-        });
+        voltarButton.setOnClickListener(v -> telaLogin());
     }
 
     private void telaLogin() {
