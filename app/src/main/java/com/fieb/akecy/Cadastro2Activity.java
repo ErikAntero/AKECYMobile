@@ -6,17 +6,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
-
+public class Cadastro2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button loginCadastrarButton = findViewById(R.id.login_cadastrar);
-        loginCadastrarButton.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.cadastro2);
+
+        Button cadastroBtnVoltar = findViewById(R.id.cadastro_btnVoltar);
+
+        cadastroBtnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CadastroActivity.class);
+                Intent intent = new Intent(Cadastro2Activity.this, CadastroActivity.class);
                 startActivity(intent);
             }
         });

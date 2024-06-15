@@ -44,7 +44,7 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/cadastro_btnAvançar"
+        app:layout_constraintBottom_toTopOf="@+id/cadastro_btnAvancar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cadastro_senha" />
@@ -92,10 +92,11 @@
         app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
 
     <Button
-        android:id="@+id/cadastro_btnAvançar"
+        android:id="@+id/cadastro_btnAvancar"
         android:layout_width="242dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
+        android:layout_marginEnd="84dp"
         android:layout_marginBottom="50dp"
         android:backgroundTint="#FFA600"
         android:text="Avançar"
@@ -103,6 +104,7 @@
         android:textSize="22dp"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toTopOf="@+id/cadastro_btnLogin"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:strokeColor="#FFA600"
         app:strokeWidth="2dp" />
@@ -111,7 +113,8 @@
         android:id="@+id/cadastro_btnLogin"
         android:layout_width="242dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="84dp"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="85dp"
         android:layout_marginBottom="100dp"
         android:backgroundTint="#00FFFFFF"
         android:text="Login"
@@ -119,7 +122,8 @@
         android:textSize="22dp"
         app:cornerRadius="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/imgLogo"
