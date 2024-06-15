@@ -19,6 +19,11 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void telaEsqueceuSenha(View view) {
+        Intent intent = new Intent(this, EsqueceuSenhaActivity.class);
+        startActivity(intent);
+    }
+
     public void telaCadastro(View view) {
     }
 

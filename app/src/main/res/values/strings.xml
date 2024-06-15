@@ -13,4 +13,7 @@
     <string name="cpf">CPF</string>
     <string name="number">Telefone</string>
     <string name="date_of_birth">Data de Nascimento</string>
+    <string name="proceed">Continuar</string>
+    <string name="esque_text">Passo 1 de 3</string>
+    <string name="esque_text2">Vamos recuperar o seu acesso</string>
 </resources>

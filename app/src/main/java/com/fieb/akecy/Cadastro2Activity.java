@@ -12,14 +12,33 @@ public class Cadastro2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro2);
 
-        Button cadastroBtnVoltar = findViewById(R.id.cadastro2_btnVoltar);
+        Button cadastro2BtnCadastrar = findViewById(R.id.cadastro2_btnCadastrar);
+        Button cadastro2BtnVoltar = findViewById(R.id.cadastro2_btnVoltar);
 
-        cadastroBtnVoltar.setOnClickListener(new View.OnClickListener() {
+        cadastro2BtnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Cadastro2Activity.this, CadastroActivity.class);
-                startActivity(intent);
+                telaLogin();
             }
         });
+
+        cadastro2BtnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                voltarParaCadastro();
+            }
+        });
+    }
+
+    private void telaLogin() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void voltarParaCadastro() {
+        Intent intent = new Intent(this, CadastroActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
