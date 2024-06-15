@@ -21,12 +21,12 @@
         android:hint="Senha"
         android:inputType="textPassword"
         android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/login_btnEntrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_email"
-        tools:textColorHint="#FFFFFF" />
+        app:layout_constraintTop_toBottomOf="@+id/login_email" />
 
     <EditText
         android:id="@+id/login_email"
@@ -42,12 +42,12 @@
         android:hint="E-mail"
         android:inputType="textEmailAddress"
         android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
         android:textSize="20dp"
         app:layout_constraintBottom_toTopOf="@+id/login_senha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_imgLogo"
-        tools:textColorHint="#FFFFFF" />
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
 
     <Button
         android:id="@+id/login_btnEntrar"
@@ -80,19 +80,20 @@
         android:text="Esqueceu sua senha?"
         android:textColor="#FFA600"
         android:textSize="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/login_btnCadastro"
+        app:layout_constraintBottom_toTopOf="@+id/login_cadastrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_btnEntrar" />
 
     <Button
-        android:id="@+id/login_btnCadastro"
+        android:id="@+id/login_cadastrar"
         android:layout_width="242dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
         android:layout_marginEnd="85dp"
         android:layout_marginBottom="100dp"
         android:backgroundTint="#00FFFFFF"
+        android:onClick="telaCadastro"
         android:text="Criar Conta"
         android:textColor="#E3E3E3"
         android:textSize="22dp"
@@ -104,7 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/login_btnEsqueceuSenha" />
 
     <ImageView
-        android:id="@+id/login_imgLogo"
+        android:id="@+id/imgLogo"
         android:layout_width="256dp"
         android:layout_height="56dp"
         android:layout_marginStart="75dp"
