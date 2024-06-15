@@ -13,12 +13,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button loginCadastrarButton = findViewById(R.id.login_cadastrar);
-        loginCadastrarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CadastroActivity.class);
-                startActivity(intent);
-            }
+        loginCadastrarButton.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CadastroActivity.class);
+            startActivity(intent);
         });
+    }
+
+    public void telaCadastro(View view) {
+    }
+
+    public void telaEsqueceuASenha(View view) {
+    }
+
+    public void telaCadastro2(View view) {
+    }
+
+    public void telaLogin(View view) {
     }
 }

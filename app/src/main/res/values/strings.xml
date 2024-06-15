@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">AKECY</string>
+    <string name="forgot_password">Esqueceu a senha?</string>
+    <string name="password">Senha</string>
+    <string name="email">Email</string>
+    <string name="enter">Entrar</string>
+    <string name="register">Cadastrar-se</string>
+    <string name="name">Nome Completo</string>
+    <string name="confirm_password">Confirme a senha</string>
+    <string name="advance">Avançar</string>
+    <string name="back">Voltar</string>
+    <string name="login">Login</string>
+    <string name="cpf">CPF</string>
+    <string name="number">Telefone</string>
+    <string name="date_of_birth">Data de Nascimento</string>
 </resources>

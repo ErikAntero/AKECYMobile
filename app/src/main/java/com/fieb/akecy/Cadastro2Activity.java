@@ -12,7 +12,7 @@ public class Cadastro2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro2);
 
-        Button cadastroBtnVoltar = findViewById(R.id.cadastro_btnVoltar);
+        Button cadastroBtnVoltar = findViewById(R.id.cadastro2_btnVoltar);
 
         cadastroBtnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
