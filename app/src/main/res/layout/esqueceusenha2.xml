@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/esque_email"
+        android:id="@+id/esque2_codigo"
         android:layout_width="330dp"
         android:layout_height="48dp"
         android:layout_marginStart="50dp"
@@ -18,11 +18,11 @@
         android:autofillHints="emailAddress"
         android:background="@drawable/edittext_arredondado"
         android:backgroundTint="#FFFFFF"
-        android:drawableStart="@drawable/email"
+        android:drawableStart="@drawable/code"
         android:drawablePadding="15dp"
         android:ems="10"
         android:gravity="start"
-        android:hint="@string/email"
+        android:hint="@string/code"
         android:inputType="textEmailAddress"
         android:padding="10dp"
         android:textColor="#FFFFFF"
@@ -30,10 +30,10 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque_texto2" />
+        app:layout_constraintTop_toBottomOf="@+id/esque2_texto3" />
 
     <Button
-        android:id="@+id/esque_btnContinuar"
+        android:id="@+id/esque2_btnContinuar"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
@@ -50,31 +50,43 @@
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/esque_texto"
+        android:id="@+id/esque2_texto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="15dp"
-        android:text="@string/esque_text"
+        android:text="@string/esque2_text"
         android:textColor="#DADADA"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque_voltar" />
+        app:layout_constraintTop_toBottomOf="@+id/esque2_voltar" />
 
     <TextView
-        android:id="@+id/esque_texto2"
+        android:id="@+id/esque2_texto2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
-        android:text="@string/esque_text2"
+        android:text="@string/esque2_text2"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque_texto" />
+        app:layout_constraintTop_toBottomOf="@+id/esque2_texto" />
+
+    <TextView
+        android:id="@+id/esque2_texto3"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/esque2_text3"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/esque2_texto2" />
 
     <ImageButton
-        android:id="@+id/esque_voltar"
+        android:id="@+id/esque2_voltar"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="20dp"

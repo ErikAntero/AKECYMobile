@@ -1,19 +1,24 @@
 <resources>
     <string name="app_name">AKECY</string>
     <string name="forgot_password">Esqueceu a senha?</string>
-    <string name="password">Senha</string>
-    <string name="email">Email</string>
     <string name="enter">Entrar</string>
+    <string name="back">Voltar</string>
+    <string name="advance">Avançar</string>
+    <string name="login">Login</string>
     <string name="register">Cadastrar-se</string>
     <string name="name">Nome Completo</string>
+    <string name="email">Email</string>
+    <string name="password">Senha</string>
     <string name="confirm_password">Confirme a senha</string>
-    <string name="advance">Avançar</string>
-    <string name="back">Voltar</string>
-    <string name="login">Login</string>
     <string name="cpf">CPF</string>
     <string name="number">Telefone</string>
     <string name="date_of_birth">Data de Nascimento</string>
+    <string name="code">Código</string>
     <string name="proceed">Continuar</string>
     <string name="esque_text">Passo 1 de 3</string>
     <string name="esque_text2">Vamos recuperar o seu acesso</string>
+    <string name="esque2_text">Passo 2 de 3</string>
+    <string name="esque2_text2">Digite o código de 6 dígitos</string>
+    <string name="esque2_text3">Enviamos um código de 6 dígitos para o seu endereço de e-mail. Lembre-se de verificar a pasta de spam!</string>
+    <string name="esque3_text">Passo 3 de 3</string>
 </resources>
