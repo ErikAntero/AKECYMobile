@@ -15,7 +15,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
-        android:autofillHints="emailAddress"
+        android:autofillHints=""
         android:background="@drawable/edittext_arredondado"
         android:backgroundTint="#FFFFFF"
         android:drawableStart="@drawable/code"
@@ -23,7 +23,7 @@
         android:ems="10"
         android:gravity="start"
         android:hint="@string/code"
-        android:inputType="textEmailAddress"
+        android:inputType=""
         android:padding="10dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
@@ -39,6 +39,7 @@
         android:layout_marginStart="85dp"
         android:layout_marginBottom="168dp"
         android:backgroundTint="#FFA600"
+        android:onClick="telaEsqueceuSenha3"
         android:text="@string/proceed"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
@@ -83,7 +84,8 @@
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque2_texto2" />
+        app:layout_constraintTop_toBottomOf="@+id/esque2_texto2"
+        tools:ignore="TextSizeCheck" />
 
     <ImageButton
         android:id="@+id/esque2_voltar"
@@ -93,7 +95,7 @@
         android:layout_marginTop="20dp"
         android:background="#00FFFFFF"
         android:contentDescription="@string/back"
-        android:onClick="telaLogin"
+        android:onClick="telaEsqueceuSenha"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -1,11 +1,11 @@
 package com.fieb.akecy;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,24 +13,52 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button loginCadastrarButton = findViewById(R.id.login_cadastrar);
-        loginCadastrarButton.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, CadastroActivity.class);
-            startActivity(intent);
+
+        /* Ainda não foi feito o Início
+        Button entrarButton = findViewById(R.id.login_btnEntrar);
+        entrarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                telaInicio();
+            }
+        });
+        */
+
+        Button cadastrarButton = findViewById(R.id.login_cadastrar);
+        cadastrarButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                telaCadastro();
+            }
+        });
+
+        TextView esqueceuASenhaTextView = findViewById(R.id.login_EsqueceuASenha);
+        esqueceuASenhaTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                telaEsqueceuSenha();
+            }
         });
     }
 
-    public void telaEsqueceuSenha(View view) {
+    /* Ainda não foi feito o Início
+
+    private void telaInicio() {
+        Intent intent = new Intent(this, InicioActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+    }
+    */
+
+    private void telaCadastro() {
+        Intent intent = new Intent(this, CadastroActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    private void telaEsqueceuSenha() {
         Intent intent = new Intent(this, EsqueceuSenhaActivity.class);
         startActivity(intent);
-    }
-
-    public void telaCadastro(View view) {
-    }
-
-    public void telaCadastro2(View view) {
-    }
-
-    public void telaLogin(View view) {
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }

@@ -4,41 +4,41 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.Button;
 
-public class EsqueceuSenhaActivity extends AppCompatActivity {
+public class EsqueceuSenha2Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.esqueceusenha);
+        setContentView(R.layout.esqueceusenha2);
 
-        ImageButton voltarButton = findViewById(R.id.esque_voltar);
+        ImageButton voltarButton = findViewById(R.id.esque2_voltar);
         voltarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                telaActivityMain();
+                telaEsqueceuSenha();
             }
         });
 
-        Button continuarButton = findViewById(R.id.esque_btnContinuar);
+        Button continuarButton = findViewById(R.id.esque2_btnContinuar);
         continuarButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                telaEsqueceuSenha2();
+                telaEsqueceuSenha3();
             }
         });
     }
 
-    private void telaActivityMain() {
-        Intent intent = new Intent(this, MainActivity.class);
+    private void telaEsqueceuSenha() {
+        Intent intent = new Intent(this, EsqueceuSenhaActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
 
-    private void telaEsqueceuSenha2() {
-        Intent intent = new Intent(this, EsqueceuSenha2Activity.class);
+    private void telaEsqueceuSenha3() {
+        Intent intent = new Intent(this, EsqueceuSenha3Activity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }

@@ -13,7 +13,6 @@
         android:layout_width="330dp"
         android:layout_height="48dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="75dp"
         android:autofillHints="password"
@@ -31,7 +30,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/login_btnEntrar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_email" />
 
@@ -42,7 +41,6 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="75dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
         android:autofillHints="emailAddress"
         android:background="@drawable/edittext_arredondado"
         android:backgroundTint="#FFFFFF"
@@ -123,7 +121,7 @@
         android:layout_marginEnd="52dp"
         android:onClick="telaEsqueceuSenha"
         android:text="@string/forgot_password"
-        android:textColor="#FFA600"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_senha"

@@ -10,6 +10,7 @@
     <string name="email">Email</string>
     <string name="password">Senha</string>
     <string name="confirm_password">Confirme a senha</string>
+    <string name="new_password">Nova senha</string>
     <string name="cpf">CPF</string>
     <string name="number">Telefone</string>
     <string name="date_of_birth">Data de Nascimento</string>
@@ -21,4 +22,6 @@
     <string name="esque2_text2">Digite o código de 6 dígitos</string>
     <string name="esque2_text3">Enviamos um código de 6 dígitos para o seu endereço de e-mail. Lembre-se de verificar a pasta de spam!</string>
     <string name="esque3_text">Passo 3 de 3</string>
+    <string name="esque3_text2">Redefina sua senha</string>
+    <string name="save_new_password">Salvar nova senha</string>
 </resources>

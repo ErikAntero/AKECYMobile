@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/esque_email"
+        android:id="@+id/esque3_senha"
         android:layout_width="330dp"
         android:layout_height="48dp"
         android:layout_marginStart="50dp"
@@ -18,71 +18,95 @@
         android:autofillHints="emailAddress"
         android:background="@drawable/edittext_arredondado"
         android:backgroundTint="#FFFFFF"
-        android:drawableStart="@drawable/email"
+        android:drawableStart="@drawable/senha"
         android:drawablePadding="15dp"
         android:ems="10"
         android:gravity="start"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
+        android:hint="@string/new_password"
+        android:inputType="textPassword"
         android:padding="10dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque_texto2" />
+        app:layout_constraintTop_toBottomOf="@+id/esque3_texto2" />
+
+    <EditText
+        android:id="@+id/esque3_senha2"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="50dp"
+        android:autofillHints="emailAddress"
+        android:background="@drawable/edittext_arredondado"
+        android:backgroundTint="#FFFFFF"
+        android:drawableStart="@drawable/senha"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:gravity="start"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/esque3_senha" />
 
     <Button
-        android:id="@+id/esque_btnContinuar"
+        android:id="@+id/esque3_btnContinuar"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
         android:layout_marginBottom="168dp"
         android:backgroundTint="#FFA600"
-        android:onClick="telaEsqueceuSenha2"
-        android:text="@string/proceed"
+        android:onClick="telaLogin"
+        android:text="@string/save_new_password"
         android:textColor="#FFFFFF"
-        android:textSize="25sp"
+        android:textSize="23sp"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:strokeColor="#FFA600"
         app:strokeWidth="2dp"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck,TextSizeCheck" />
 
     <TextView
-        android:id="@+id/esque_texto"
+        android:id="@+id/esque3_texto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="15dp"
-        android:text="@string/esque_text"
+        android:text="@string/esque3_text"
         android:textColor="#DADADA"
         android:textSize="12sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque_voltar" />
+        app:layout_constraintTop_toBottomOf="@+id/esque3_voltar" />
 
     <TextView
-        android:id="@+id/esque_texto2"
+        android:id="@+id/esque3_texto2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
-        android:text="@string/esque_text2"
+        android:text="@string/esque3_text2"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque_texto" />
+        app:layout_constraintTop_toBottomOf="@+id/esque3_texto" />
 
     <ImageButton
-        android:id="@+id/esque_voltar"
+        android:id="@+id/esque3_voltar"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:background="#00FFFFFF"
         android:contentDescription="@string/back"
-        android:onClick="telaLogin"
+        android:onClick="telaEsqueceuSenha2"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

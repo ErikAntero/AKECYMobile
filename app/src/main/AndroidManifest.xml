@@ -26,6 +26,8 @@
         <activity android:name=".CadastroActivity" />
         <activity android:name=".Cadastro2Activity" />
         <activity android:name=".EsqueceuSenhaActivity" />
+        <activity android:name=".EsqueceuSenha2Activity" />
+        <activity android:name=".EsqueceuSenha3Activity" />
 
     </application>
 
