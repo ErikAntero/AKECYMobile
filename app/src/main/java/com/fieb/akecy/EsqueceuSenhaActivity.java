@@ -1,11 +1,11 @@
 package com.fieb.akecy;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class EsqueceuSenhaActivity extends AppCompatActivity {
 
@@ -15,20 +15,10 @@ public class EsqueceuSenhaActivity extends AppCompatActivity {
         setContentView(R.layout.esqueceusenha);
 
         ImageButton voltarButton = findViewById(R.id.esque_voltar);
-        voltarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                telaActivityMain();
-            }
-        });
+        voltarButton.setOnClickListener(v -> telaActivityMain());
 
         Button continuarButton = findViewById(R.id.esque_btnContinuar);
-        continuarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                telaEsqueceuSenha2();
-            }
-        });
+        continuarButton.setOnClickListener(v -> telaEsqueceuSenha2());
     }
 
     private void telaActivityMain() {

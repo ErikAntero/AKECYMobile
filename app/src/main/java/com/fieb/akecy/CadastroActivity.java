@@ -1,10 +1,10 @@
 package com.fieb.akecy;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class CadastroActivity extends AppCompatActivity {
 
@@ -14,20 +14,10 @@ public class CadastroActivity extends AppCompatActivity {
         setContentView(R.layout.cadastro);
 
         Button avancarButton = findViewById(R.id.cadastro_btnAvancar);
-        avancarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                telaCadastro2();
-            }
-        });
+        avancarButton.setOnClickListener(v -> telaCadastro2());
 
         Button loginButton = findViewById(R.id.cadastro_btnLogin);
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                telaActivityMain();
-            }
-        });
+        loginButton.setOnClickListener(v -> telaActivityMain());
     }
 
     private void telaCadastro2() {

@@ -1,11 +1,11 @@
 package com.fieb.akecy;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,33 +16,17 @@ public class MainActivity extends AppCompatActivity {
 
         /* Ainda não foi feito o Início
         Button entrarButton = findViewById(R.id.login_btnEntrar);
-        entrarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                telaInicio();
-            }
-        });
+        entrarButton.setOnClickListener(v -> telaInicio());
         */
 
         Button cadastrarButton = findViewById(R.id.login_cadastrar);
-        cadastrarButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                telaCadastro();
-            }
-        });
+        cadastrarButton.setOnClickListener(v -> telaCadastro());
 
         TextView esqueceuASenhaTextView = findViewById(R.id.login_EsqueceuASenha);
-        esqueceuASenhaTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                telaEsqueceuSenha();
-            }
-        });
+        esqueceuASenhaTextView.setOnClickListener(v -> telaEsqueceuSenha());
     }
 
     /* Ainda não foi feito o Início
-
     private void telaInicio() {
         Intent intent = new Intent(this, InicioActivity.class);
         startActivity(intent);
