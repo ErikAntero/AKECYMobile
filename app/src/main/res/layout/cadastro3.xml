@@ -5,69 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:visibility="visible"
-    tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/esque3_btnContinuar"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginBottom="168dp"
-        android:backgroundTint="#FFA600"
-        android:text="@string/save_new_password"
-        android:textColor="#FFFFFF"
-        android:textSize="23sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="#FFA600"
-        app:strokeWidth="2dp"
-        tools:ignore="TextContrastCheck,TextSizeCheck" />
-
-    <TextView
-        android:id="@+id/esque3_texto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/esque3_text"
-        android:textColor="#DADADA"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque3_voltar" />
-
-    <TextView
-        android:id="@+id/esque3_texto2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/esque3_text2"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque3_texto" />
-
-    <ImageButton
-        android:id="@+id/esque3_voltar"
-        android:layout_width="65dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:background="#00FFFFFF"
-        android:contentDescription="@string/back"
-        android:scaleType="fitXY"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+    tools:context=".Cadastro3Activity">
 
     <EditText
-        android:id="@+id/esque3_senha"
+        android:id="@+id/cadastro3_senha"
         android:layout_width="330dp"
         android:layout_height="48dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="75dp"
         android:layout_marginEnd="50dp"
         android:autofillHints="password"
         android:background="@drawable/edittext_arredondado"
@@ -85,10 +30,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
 
     <EditText
-        android:id="@+id/esque3_senha2"
+        android:id="@+id/cadastro3_senha2"
         android:layout_width="330dp"
         android:layout_height="48dp"
         android:layout_marginStart="50dp"
@@ -113,7 +58,7 @@
         app:layout_constraintTop_toBottomOf="@+id/layoutCheckList" />
 
     <TextView
-        android:id="@+id/esque3_erro_senha"
+        android:id="@+id/cadastro3_erro_senha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="287dp"
@@ -123,14 +68,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/esque3_erro_senha2"
+        android:id="@+id/cadastro3_erro_senha2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:textColor="#FF3333"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque3_senha2" />
+        app:layout_constraintTop_toBottomOf="@+id/cadastro3_senha2" />
 
     <LinearLayout
         android:id="@+id/layoutCheckList"
@@ -140,7 +85,7 @@
         android:layout_marginTop="10dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque3_senha">
+        app:layout_constraintTop_toBottomOf="@+id/cadastro3_senha">
 
         <LinearLayout
             android:id="@+id/layoutCheckMinLength"
@@ -242,5 +187,56 @@
                 android:textColor="#FFFFFF" />
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/cadastro3_btnCadastrar"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#FFA600"
+        android:text="@string/register"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/cadastro3_btnVoltar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="#FFA600"
+        app:strokeWidth="2dp"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/cadastro3_btnVoltar"
+        android:layout_width="242dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:layout_marginEnd="85dp"
+        android:layout_marginBottom="100dp"
+        android:backgroundTint="#00FFFFFF"
+        android:text="@string/back"
+        android:textColor="#E3E3E3"
+        android:textSize="20sp"
+        app:cornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="256dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="75dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

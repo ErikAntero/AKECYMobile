@@ -8,34 +8,36 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class EsqueceuSenha3Activity extends AppCompatActivity {
+public class Cadastro3Activity extends AppCompatActivity {
 
-    private EditText novaSenhaEditText, confirmarSenhaEditText;
+    private EditText senhaEditText, senha2EditText;
     private ImageView checkMinLength, checkUppercase, checkSymbol, checkNumber;
-    private TextView erroSenha2TextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.esqueceusenha3);
+        setContentView(R.layout.cadastro3);
 
-        novaSenhaEditText = findViewById(R.id.esque3_senha);
-        confirmarSenhaEditText = findViewById(R.id.esque3_senha2);
-        erroSenha2TextView = findViewById(R.id.esque3_erro_senha2);
+        senhaEditText = findViewById(R.id.cadastro3_senha);
+        senha2EditText = findViewById(R.id.cadastro3_senha2);
 
         checkMinLength = findViewById(R.id.checkMinLength);
         checkUppercase = findViewById(R.id.checkUppercase);
         checkSymbol = findViewById(R.id.checkSymbol);
         checkNumber = findViewById(R.id.checkNumber);
 
-        novaSenhaEditText.addTextChangedListener(new TextWatcher() {
+        Button cadastrarButton = findViewById(R.id.cadastro3_btnCadastrar);
+        Button btnVoltar = findViewById(R.id.cadastro3_btnVoltar);
+
+        btnVoltar.setOnClickListener(v -> onBackPressed());
+
+        senhaEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
@@ -48,7 +50,7 @@ public class EsqueceuSenha3Activity extends AppCompatActivity {
             }
         });
 
-        confirmarSenhaEditText.addTextChangedListener(new TextWatcher() {
+        senha2EditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
@@ -61,31 +63,24 @@ public class EsqueceuSenha3Activity extends AppCompatActivity {
             }
         });
 
-        Button continuarButton = findViewById(R.id.esque3_btnContinuar);
-        continuarButton.setOnClickListener(v -> {
+        cadastrarButton.setOnClickListener(v -> {
             if (validatePassword()) {
-                Toast.makeText(EsqueceuSenha3Activity.this, "Senha alter com sucesso!", Toast.LENGTH_SHORT).show();
-                telaActivityMain();
-            } else {
-                Toast.makeText(EsqueceuSenha3Activity.this, "Por favor, verifique os campos.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Cadastro3Activity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Cadastro3Activity.this, MainActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                finish();
             }
         });
 
-        ImageButton btnVoltar = findViewById(R.id.esque3_voltar);
-        btnVoltar.setOnClickListener(v -> onBackPressed());
-    }
-
-    private void telaActivityMain() {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-        finish();
     }
 
     @SuppressLint("SetTextI18n")
     private void checkPasswordsMatch() {
-        String senha1 = novaSenhaEditText.getText().toString();
-        String senha2 = confirmarSenhaEditText.getText().toString();
+        String senha1 = senhaEditText.getText().toString();
+        String senha2 = senha2EditText.getText().toString();
+
+        TextView erroSenha2TextView = findViewById(R.id.cadastro3_erro_senha2);
 
         if (senha1.equals(senha2)) {
             erroSenha2TextView.setText("");
@@ -95,7 +90,7 @@ public class EsqueceuSenha3Activity extends AppCompatActivity {
     }
 
     private void checkPasswordRequirements() {
-        String senha = novaSenhaEditText.getText().toString();
+        String senha = senhaEditText.getText().toString();
 
         if (senha.length() >= 7) {
             checkMinLength.setImageResource(R.drawable.check_green);
@@ -131,11 +126,12 @@ public class EsqueceuSenha3Activity extends AppCompatActivity {
     }
 
     private boolean validatePassword() {
-        String senha1 = novaSenhaEditText.getText().toString();
-        String senha2 = confirmarSenhaEditText.getText().toString();
+        String senha1 = senhaEditText.getText().toString();
+        String senha2 = senha2EditText.getText().toString();
 
         return senha1.equals(senha2) && senha1.length() >= 7 && senha1.matches(".*[a-z].*")
                 && senha1.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?].*")
                 && senha1.matches(".*\\d.*");
     }
+
 }

@@ -7,44 +7,41 @@
     android:background="@drawable/background"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/cadastro2_telefone"
-        android:layout_width="330dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="75dp"
-        android:autofillHints="password"
-        android:background="@drawable/edittext_arredondado"
-        android:backgroundTint="#FFFFFF"
-        android:drawableStart="@drawable/number"
-        android:drawablePadding="15dp"
-        android:ems="10"
-        android:gravity="start"
-        android:hint="@string/number"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/cadastro2_btnCadastrar"
+    <TextView
+        android:id="@+id/cadastro2_erro_dataDeNascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#FF3333"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadastro2_cpf" />
+        app:layout_constraintTop_toBottomOf="@+id/cadastro2_dataDeNascimento"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/cadastro2_erro_cpf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#FF3333"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastro2_cpf"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/cadastro2_cpf"
         android:layout_width="330dp"
         android:layout_height="48dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="75dp"
+        android:autofillHints=""
         android:background="@drawable/edittext_arredondado"
         android:backgroundTint="#FFFFFF"
-        android:autofillHints=""
         android:drawableStart="@drawable/person"
         android:drawablePadding="15dp"
         android:ems="10"
@@ -55,11 +52,12 @@
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/cadastro2_telefone"
+        app:layout_constraintBottom_toTopOf="@+id/cadastro2_btnAvancar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadastro2_dataDeNascimento" />
+        app:layout_constraintTop_toBottomOf="@+id/cadastro2_dataDeNascimento"
+        app:layout_constraintVertical_bias="0.5" />
 
     <EditText
         android:id="@+id/cadastro2_dataDeNascimento"
@@ -68,7 +66,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="75dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="20dp"
         android:autofillHints="name"
         android:background="@drawable/edittext_arredondado"
         android:backgroundTint="#FFFFFF"
@@ -87,17 +85,17 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLogo"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
-        android:id="@+id/cadastro2_btnCadastrar"
+        android:id="@+id/cadastro2_btnAvancar"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="85dp"
         android:layout_marginEnd="85dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="#FFA600"
-        android:text="@string/register"
+        android:text="@string/advance"
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         app:cornerRadius="10dp"

@@ -8,50 +8,21 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/cadastro_senha"
+        android:id="@+id/cadastro_telefone"
         android:layout_width="330dp"
         android:layout_height="48dp"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
-        android:autofillHints="password"
-        android:background="@drawable/edittext_arredondado"
-        android:backgroundTint="#FFFFFF"
-        android:drawableStart="@drawable/senha"
-        android:drawablePadding="15dp"
-        android:ems="10"
-        android:gravity="start"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/cadastro_senha2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadastro_email" />
-
-    <EditText
-        android:id="@+id/cadastro_senha2"
-        android:layout_width="330dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="75dp"
         android:autofillHints="password"
         android:background="@drawable/edittext_arredondado"
         android:backgroundTint="#FFFFFF"
-        android:drawableStart="@drawable/senha"
+        android:drawableStart="@drawable/number"
         android:drawablePadding="15dp"
         android:ems="10"
         android:gravity="start"
-        android:hint="@string/confirm_password"
-        android:inputType="textPassword"
-        android:padding="10dp"
+        android:hint="@string/number"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textSize="20sp"
@@ -59,34 +30,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadastro_senha" />
-
-    <EditText
-        android:id="@+id/cadastro_email"
-        android:layout_width="330dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
-        android:autofillHints="emailAddress"
-        android:background="@drawable/edittext_arredondado"
-        android:backgroundTint="#FFFFFF"
-        android:drawableStart="@drawable/email"
-        android:drawablePadding="15dp"
-        android:ems="10"
-        android:gravity="start"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:padding="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/cadastro_senha"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cadastro_nome" />
+        app:layout_constraintTop_toBottomOf="@+id/cadastro_email"
+        app:layout_constraintVertical_bias="0.5"
+        android:inputType="" />
 
     <EditText
         android:id="@+id/cadastro_nome"
@@ -95,7 +41,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginTop="75dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="15dp"
         android:autofillHints="name"
         android:background="@drawable/edittext_arredondado"
         android:backgroundTint="#FFFFFF"
@@ -114,7 +60,35 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgLogo"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.5" />
+
+    <EditText
+        android:id="@+id/cadastro_email"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="15dp"
+        android:autofillHints="emailAddress"
+        android:background="@drawable/edittext_arredondado"
+        android:backgroundTint="#FFFFFF"
+        android:drawableStart="@drawable/email"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:gravity="start"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/cadastro_telefone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastro_nome"
+        app:layout_constraintVertical_bias="0.5" />
 
     <Button
         android:id="@+id/cadastro_btnAvancar"
@@ -166,5 +140,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/cadastro_erro_nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="200dp"
+        android:textColor="#FF3333"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastro_nome"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/cadastro_erro_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="200dp"
+        android:textColor="#FF3333"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastro_email"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/cadastro_erro_telefone"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="200dp"
+        android:textColor="#FF3333"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cadastro_telefone"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,4 +24,8 @@
     <string name="esque3_text">Passo 3 de 3</string>
     <string name="esque3_text2">Redefina sua senha</string>
     <string name="save_new_password">Salvar nova senha</string>
+    <string name="check_min_length">No mínimo 7 caracteres</string>
+    <string name="check_uppercase">Pelo menos 1 letra maiúscula</string>
+    <string name="check_symbol">Pelo menos 1 símbolo</string>
+    <string name="check_number">Pelo menos 1 número</string>
 </resources>
