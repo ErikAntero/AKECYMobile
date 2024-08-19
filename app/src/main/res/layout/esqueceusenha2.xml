@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/img_background"
     android:visibility="visible"
     tools:context=".MainActivity">
 
@@ -16,9 +16,9 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="50dp"
         android:autofillHints=""
-        android:background="@drawable/edittext_arredondado"
+        android:background="@drawable/config_edittext_arredondado"
         android:backgroundTint="#FFFFFF"
-        android:drawableStart="@drawable/code"
+        android:drawableStart="@drawable/ic_code"
         android:drawablePadding="15dp"
         android:ems="10"
         android:gravity="start"
@@ -97,6 +97,6 @@
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/ic_back" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

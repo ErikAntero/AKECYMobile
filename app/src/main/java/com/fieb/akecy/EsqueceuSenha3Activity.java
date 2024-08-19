@@ -98,34 +98,34 @@ public class EsqueceuSenha3Activity extends AppCompatActivity {
         String senha = novaSenhaEditText.getText().toString();
 
         if (senha.length() >= 7) {
-            checkMinLength.setImageResource(R.drawable.check_green);
+            checkMinLength.setImageResource(R.drawable.ic_check_green);
             checkMinLength.setVisibility(View.VISIBLE);
         } else {
-            checkMinLength.setImageResource(R.drawable.check_white);
+            checkMinLength.setImageResource(R.drawable.ic_check_white);
             checkMinLength.setVisibility(View.VISIBLE);
         }
 
         if (senha.matches(".*[A-Z].*")) {
-            checkUppercase.setImageResource(R.drawable.check_green);
+            checkUppercase.setImageResource(R.drawable.ic_check_green);
             checkUppercase.setVisibility(View.VISIBLE);
         } else {
-            checkUppercase.setImageResource(R.drawable.check_white);
+            checkUppercase.setImageResource(R.drawable.ic_check_white);
             checkUppercase.setVisibility(View.VISIBLE);
         }
 
         if (senha.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?].*")) {
-            checkSymbol.setImageResource(R.drawable.check_green);
+            checkSymbol.setImageResource(R.drawable.ic_check_green);
             checkSymbol.setVisibility(View.VISIBLE);
         } else {
-            checkSymbol.setImageResource(R.drawable.check_white);
+            checkSymbol.setImageResource(R.drawable.ic_check_white);
             checkSymbol.setVisibility(View.VISIBLE);
         }
 
         if (senha.matches(".*\\d.*")) {
-            checkNumber.setImageResource(R.drawable.check_green);
+            checkNumber.setImageResource(R.drawable.ic_check_green);
             checkNumber.setVisibility(View.VISIBLE);
         } else {
-            checkNumber.setImageResource(R.drawable.check_white);
+            checkNumber.setImageResource(R.drawable.ic_check_white);
             checkNumber.setVisibility(View.VISIBLE);
         }
     }

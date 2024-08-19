@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/img_background"
     android:visibility="visible"
     tools:context=".MainActivity">
 
@@ -16,9 +16,9 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="75dp"
         android:autofillHints="password"
-        android:background="@drawable/edittext_arredondado"
+        android:background="@drawable/config_edittext_arredondado"
         android:backgroundTint="#FFFFFF"
-        android:drawableStart="@drawable/senha"
+        android:drawableStart="@drawable/ic_password"
         android:drawablePadding="15dp"
         android:ems="10"
         android:gravity="start"
@@ -42,9 +42,9 @@
         android:layout_marginTop="75dp"
         android:layout_marginEnd="50dp"
         android:autofillHints="emailAddress"
-        android:background="@drawable/edittext_arredondado"
+        android:background="@drawable/config_edittext_arredondado"
         android:backgroundTint="#FFFFFF"
-        android:drawableStart="@drawable/email"
+        android:drawableStart="@drawable/ic_email"
         android:drawablePadding="15dp"
         android:ems="10"
         android:gravity="start"
@@ -109,7 +109,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/ic_logo" />
 
     <TextView
         android:id="@+id/login_EsqueceuASenha"
