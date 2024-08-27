@@ -14,10 +14,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /* Ainda não foi feito o Início
         Button entrarButton = findViewById(R.id.login_btnEntrar);
         entrarButton.setOnClickListener(v -> telaInicio());
-        */
 
         Button cadastrarButton = findViewById(R.id.login_cadastrar);
         cadastrarButton.setOnClickListener(v -> telaCadastro());
@@ -26,13 +24,11 @@ public class MainActivity extends AppCompatActivity {
         esqueceuASenhaTextView.setOnClickListener(v -> telaEsqueceuSenha());
     }
 
-    /* Ainda não foi feito o Início
     private void telaInicio() {
-        Intent intent = new Intent(this, InicioActivity.class);
+        Intent intent = new Intent(this, NovosActivity.class);
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
     }
-    */
 
     private void telaCadastro() {
         Intent intent = new Intent(this, CadastroActivity.class);

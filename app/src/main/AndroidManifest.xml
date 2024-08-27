@@ -29,6 +29,11 @@
         <activity android:name=".EsqueceuSenhaActivity" />
         <activity android:name=".EsqueceuSenha2Activity" />
         <activity android:name=".EsqueceuSenha3Activity" />
+        <activity android:name=".NovosActivity"></activity>
+        <activity android:name=".PromocoesActivity"/>
+        <activity android:name=".PesquisarActivity"/>
+        <activity android:name=".FavoritosActivity"/>
+        <activity android:name=".ContaActivity"/>
 
     </application>
 
