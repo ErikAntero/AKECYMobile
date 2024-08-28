@@ -69,7 +69,7 @@ public class EsqueceuSenhaActivity extends AppCompatActivity {
     private void telaActivityMain() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        overridePendingTransition(0, 0);
     }
 
     private class MyTextWatcher implements TextWatcher {
