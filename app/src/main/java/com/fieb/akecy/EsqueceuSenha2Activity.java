@@ -41,13 +41,8 @@ public class EsqueceuSenha2Activity extends AppCompatActivity {
 
     private void telaEsqueceuSenha3() {
         Intent intent = new Intent(this, EsqueceuSenha3Activity.class);
-        // Obter o email da tela anterior (EsqueceuSenhaActivity)
-        String email = getIntent().getStringExtra("email");
-
-        // Passar o email para a próxima tela
-        intent.putExtra("email", email);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        overridePendingTransition(0, 0);
     }
 
     private boolean isValidCodigo(String codigo) {

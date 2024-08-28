@@ -46,16 +46,13 @@ public class CadastroActivity extends AppCompatActivity {
     private void telaCadastro2() {
         Intent intent = new Intent(this, Cadastro2Activity.class);
         startActivity(intent);
-        intent.putExtra("nome", editTextNome.getText().toString());
-        intent.putExtra("email", editTextEmail.getText().toString());
-        intent.putExtra("telefone", editTextTelefone.getText().toString());
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        overridePendingTransition(0, 0);
     }
 
     private void telaActivityMain() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+        overridePendingTransition(0, 0);
     }
 
     private boolean validateNome() {
