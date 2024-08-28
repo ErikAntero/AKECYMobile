@@ -5,17 +5,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Cadastro3Activity extends AppCompatActivity {
 
+    private DatabaseHelper dbHelper;
     private EditText senhaEditText, senha2EditText;
     private ImageView checkMinLength, checkUppercase, checkSymbol, checkNumber;
 
@@ -23,6 +28,9 @@ public class Cadastro3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro3);
+
+
+        dbHelper = new DatabaseHelper(this);
 
         senhaEditText = findViewById(R.id.cadastro3_senha);
         senha2EditText = findViewById(R.id.cadastro3_senha2);
@@ -65,6 +73,7 @@ public class Cadastro3Activity extends AppCompatActivity {
 
         cadastrarButton.setOnClickListener(v -> {
             if (validatePassword()) {
+                realizarCadastro(); // Chamar o método aqui
                 Toast.makeText(Cadastro3Activity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Cadastro3Activity.this, MainActivity.class);
                 startActivity(intent);
@@ -134,4 +143,45 @@ public class Cadastro3Activity extends AppCompatActivity {
                 && senha1.matches(".*\\d.*");
     }
 
+    private void realizarCadastro() {
+        // ... (Validação da senha - mantenha a mesma)
+
+        if (validatePassword()) {
+            // Obter dados das telas anteriores
+            Intent intent = getIntent();
+            String nome = intent.getStringExtra("nome");
+            String email = intent.getStringExtra("email");
+            String telefone = intent.getStringExtra("telefone");
+            String dataNascString = intent.getStringExtra("dataNasc");
+            String cpf = intent.getStringExtra("cpf");
+            String senha = senhaEditText.getText().toString();
+
+            // Converter data de nascimento de String para LocalDate
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+            LocalDate dataNasc = LocalDate.parse(dataNascString, formatter);
+
+            // Inserir usuário no banco de dados
+            dbHelper.inserirUsuario(nome, email, telefone, dataNasc, cpf, senha, new DatabaseHelper.OnUserInsertionListener() {
+                @Override
+                public void onUserInsertionComplete(boolean sucesso) {
+                    if (sucesso) {
+                        Toast.makeText(Cadastro3Activity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                        telaActivityMain(); // Navega para a MainActivity
+                        finish(); // Encerra a Cadastro3Activity
+                    } else {
+                        Toast.makeText(Cadastro3Activity.this, "Erro ao cadastrar. Tente novamente.", Toast.LENGTH_SHORT).show();
+                        // Adicione logs aqui para identificar a causa do erro na inserção
+                        Log.e("Cadastro3Activity", "Erro ao inserir usuário no banco de dados");
+                    }
+                }
+            });
+        }
+    }
+
+    private void telaActivityMain() {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+
+    }
 }

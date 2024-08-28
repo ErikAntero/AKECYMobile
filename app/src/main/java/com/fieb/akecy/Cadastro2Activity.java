@@ -49,9 +49,31 @@ public class Cadastro2Activity extends AppCompatActivity {
     }
 
     private void telaCadastro3() {
-        Intent intent = new Intent(this, Cadastro3Activity.class);
-        startActivity(intent);
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        // Obter dados da tela anterior
+        Intent previousIntent = getIntent();
+        String nome = previousIntent.getStringExtra("nome");
+        String email = previousIntent.getStringExtra("email");
+        String telefone = previousIntent.getStringExtra("telefone");
+
+        // Validar data de nascimento e CPF
+        if (validateDataDeNascimento() && validateCpf()) {
+            // Criar o Intent para a próxima tela
+            Intent intent = new Intent(this, Cadastro3Activity.class);
+
+            // Passar todos os dados para a próxima tela
+            intent.putExtra("nome", nome);
+            intent.putExtra("email", email);
+            intent.putExtra("telefone", telefone);
+            intent.putExtra("dataNasc", editTextDataDeNascimento.getText().toString());
+            intent.putExtra("cpf", editTextCpf.getText().toString());
+
+            // Iniciar a próxima Activity
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        } else {
+            // Exibir mensagem de erro se a validação falhar
+            Toast.makeText(Cadastro2Activity.this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private boolean validateDataDeNascimento() {

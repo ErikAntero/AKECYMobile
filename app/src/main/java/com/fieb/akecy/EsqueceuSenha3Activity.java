@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EsqueceuSenha3Activity extends AppCompatActivity {
 
+    private DatabaseHelper dbHelper;
     private EditText novaSenhaEditText, confirmarSenhaEditText;
     private ImageView checkMinLength, checkUppercase, checkSymbol, checkNumber;
     private TextView erroSenha2TextView;
@@ -25,6 +26,8 @@ public class EsqueceuSenha3Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.esqueceusenha3);
+
+        dbHelper = new DatabaseHelper(this);
 
         novaSenhaEditText = findViewById(R.id.esque3_senha);
         confirmarSenhaEditText = findViewById(R.id.esque3_senha2);
@@ -37,10 +40,12 @@ public class EsqueceuSenha3Activity extends AppCompatActivity {
 
         novaSenhaEditText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -50,10 +55,12 @@ public class EsqueceuSenha3Activity extends AppCompatActivity {
 
         confirmarSenhaEditText.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -63,6 +70,7 @@ public class EsqueceuSenha3Activity extends AppCompatActivity {
 
         Button continuarButton = findViewById(R.id.esque3_btnContinuar);
         continuarButton.setOnClickListener(v -> {
+            alterarSenha();
             if (validatePassword()) {
                 Toast.makeText(EsqueceuSenha3Activity.this, "Senha alter com sucesso!", Toast.LENGTH_SHORT).show();
                 telaActivityMain();
@@ -137,5 +145,31 @@ public class EsqueceuSenha3Activity extends AppCompatActivity {
         return senha1.equals(senha2) && senha1.length() >= 7 && senha1.matches(".*[a-z].*")
                 && senha1.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?].*")
                 && senha1.matches(".*\\d.*");
+    }
+
+
+    private void alterarSenha() {
+        if (validatePassword()) {
+            // Obter o email da tela anterior
+            Intent intent = getIntent();
+            String email = intent.getStringExtra("email");
+
+            String novaSenha = novaSenhaEditText.getText().toString();
+
+            // Atualizar senha no banco de dados (passando o listener)
+            dbHelper.atualizarSenha(email, novaSenha, new DatabaseHelper.OnPasswordUpdateListener() {
+                @Override
+                public void onPasswordUpdateComplete(boolean sucesso) {
+                    if (sucesso) {
+                        Toast.makeText(EsqueceuSenha3Activity.this, "Senha alterada com sucesso!", Toast.LENGTH_SHORT).show();
+                        telaActivityMain();
+                    } else {
+                        Toast.makeText(EsqueceuSenha3Activity.this, "Erro ao alterar senha. Tente novamente.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } else {
+            Toast.makeText(EsqueceuSenha3Activity.this, "Por favor, verifique os campos.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

@@ -13,12 +13,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EsqueceuSenhaActivity extends AppCompatActivity {
 
+    private DatabaseHelper dbHelper;
     private EditText emailEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.esqueceusenha);
+
+        dbHelper = new DatabaseHelper(this);
 
         emailEditText = findViewById(R.id.esque_email);
         ImageButton voltarButton = findViewById(R.id.esque_voltar);
@@ -27,6 +30,7 @@ public class EsqueceuSenhaActivity extends AppCompatActivity {
         voltarButton.setOnClickListener(v -> telaActivityMain());
 
         continuarButton.setOnClickListener(v -> {
+            verificarEmail();
             String email = emailEditText.getText().toString().trim();
 
             if (validateEmail(email)) {
@@ -63,6 +67,30 @@ public class EsqueceuSenhaActivity extends AppCompatActivity {
             return false;
         } else {
             return true;
+        }
+    }
+
+    private void verificarEmail() {
+        String email = emailEditText.getText().toString().trim();
+
+        if (validateEmail(email)) {
+            // Verificar email no banco de dados (passando o listener)
+            dbHelper.verificarEmail(email, new DatabaseHelper.OnEmailVerificationListener() {
+                @Override
+                public void onEmailVerificationComplete(boolean emailExiste) {
+                    if (emailExiste) {
+                        // Email existe, vá para a próxima tela
+                        Intent intent = new Intent(EsqueceuSenhaActivity.this, EsqueceuSenha2Activity.class);
+                        intent.putExtra("email", email);
+                        startActivity(intent);
+                        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                    } else {
+                        Toast.makeText(EsqueceuSenhaActivity.this, "Email não encontrado", Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        } else {
+            Toast.makeText(EsqueceuSenhaActivity.this, "Por favor, insira um email válido.", Toast.LENGTH_SHORT).show();
         }
     }
 

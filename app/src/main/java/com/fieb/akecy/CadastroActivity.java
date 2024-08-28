@@ -46,6 +46,9 @@ public class CadastroActivity extends AppCompatActivity {
     private void telaCadastro2() {
         Intent intent = new Intent(this, Cadastro2Activity.class);
         startActivity(intent);
+        intent.putExtra("nome", editTextNome.getText().toString());
+        intent.putExtra("email", editTextEmail.getText().toString());
+        intent.putExtra("telefone", editTextTelefone.getText().toString());
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
