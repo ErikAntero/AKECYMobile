@@ -1,4 +1,4 @@
-package com.fieb.akecy;
+package com.fieb.akecy.view.usuario;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class CadastroActivity extends AppCompatActivity {
+import com.fieb.akecy.R;
+import com.fieb.akecy.model.Usuario;
+
+public class Cadastro extends AppCompatActivity {
 
     private EditText editTextNome, editTextEmail, editTextTelefone;
 
@@ -35,7 +38,7 @@ public class CadastroActivity extends AppCompatActivity {
             if (validateNome() && validateEmail() && validateTelefone()) {
                 telaCadastro2();
             } else {
-                Toast.makeText(CadastroActivity.this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Cadastro.this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -44,10 +47,21 @@ public class CadastroActivity extends AppCompatActivity {
     }
 
     private void telaCadastro2() {
-        Intent intent = new Intent(this, Cadastro2Activity.class);
+        Intent intent = new Intent(this, Cadastro2.class);
+
+        Usuario usuario = new Usuario();
+        usuario.setNome(editTextNome.getText().toString().trim());
+        usuario.setEmail(editTextEmail.getText().toString().trim());
+        usuario.setTelefone(editTextTelefone.getText().toString().trim());
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("usuario", usuario);
+        intent.putExtras(bundle);
+
         startActivity(intent);
         overridePendingTransition(0, 0);
     }
+
 
     private void telaActivityMain() {
         Intent intent = new Intent(this, MainActivity.class);

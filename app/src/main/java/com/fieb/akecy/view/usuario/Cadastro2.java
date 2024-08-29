@@ -1,4 +1,4 @@
-package com.fieb.akecy;
+package com.fieb.akecy.view.usuario;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,15 +11,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.fieb.akecy.R;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import com.fieb.akecy.model.Usuario;
 
-public class Cadastro2Activity extends AppCompatActivity {
+public class Cadastro2 extends AppCompatActivity {
 
     private EditText editTextDataDeNascimento, editTextCpf;
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,15 @@ public class Cadastro2Activity extends AppCompatActivity {
         Button btnAvancar = findViewById(R.id.cadastro2_btnAvancar);
         Button btnVoltar = findViewById(R.id.cadastro2_btnVoltar);
 
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            usuario = (Usuario) bundle.getSerializable("usuario");
+        } else {
+            Toast.makeText(Cadastro2.this, "Erro ao recuperar dados do usuário", Toast.LENGTH_SHORT).show();
+            finish();
+            return;
+        }
+
         editTextDataDeNascimento.setKeyListener(DigitsKeyListener.getInstance("0123456789/"));
         editTextCpf.setKeyListener(DigitsKeyListener.getInstance("0123456789."));
 
@@ -41,7 +54,7 @@ public class Cadastro2Activity extends AppCompatActivity {
             if (validateDataDeNascimento() && validateCpf()) {
                 telaCadastro3();
             } else {
-                Toast.makeText(Cadastro2Activity.this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Cadastro2.this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -49,7 +62,15 @@ public class Cadastro2Activity extends AppCompatActivity {
     }
 
     private void telaCadastro3() {
-        Intent intent = new Intent(this, Cadastro3Activity.class);
+        Intent intent = new Intent(this, Cadastro3.class);
+
+        usuario.setDataNasc(editTextDataDeNascimento.getText().toString().trim());
+        usuario.setCpf(editTextCpf.getText().toString().trim());
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("usuario", usuario);
+        intent.putExtras(bundle);
+
         startActivity(intent);
         overridePendingTransition(0, 0);
     }

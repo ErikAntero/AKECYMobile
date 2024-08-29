@@ -1,4 +1,4 @@
-package com.fieb.akecy;
+package com.fieb.akecy.view.usuario;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class EsqueceuSenhaActivity extends AppCompatActivity {
+import com.fieb.akecy.R;
+import com.fieb.akecy.controller.EsqueceuSenhaController;
+
+public class EsqueceuSenha extends AppCompatActivity {
 
     private EditText emailEditText;
 
@@ -30,12 +33,17 @@ public class EsqueceuSenhaActivity extends AppCompatActivity {
             String email = emailEditText.getText().toString().trim();
 
             if (validateEmail(email)) {
-                Intent intent = new Intent(EsqueceuSenhaActivity.this, EsqueceuSenha2Activity.class);
-                intent.putExtra("email", email); // Passar o email para a próxima atividade
-                startActivity(intent);
-                overridePendingTransition(0, 0);
+                EsqueceuSenhaController controller = new EsqueceuSenhaController();
+                if (controller.verificarEmail(EsqueceuSenha.this, email)) {
+                    Intent intent = new Intent(EsqueceuSenha.this, EsqueceuSenha2.class);
+                    intent.putExtra("email", email);
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
+                } else {
+                    Toast.makeText(EsqueceuSenha.this, "Email não encontrado", Toast.LENGTH_SHORT).show();
+                }
             } else {
-                Toast.makeText(EsqueceuSenhaActivity.this, "Por favor, insira um email válido.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EsqueceuSenha.this, "Por favor, insira um email válido.", Toast.LENGTH_SHORT).show();
             }
         });
 

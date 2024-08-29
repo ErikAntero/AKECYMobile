@@ -1,4 +1,4 @@
-package com.fieb.akecy;
+package com.fieb.akecy.view.usuario;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +12,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class EsqueceuSenha2Activity extends AppCompatActivity {
+import com.fieb.akecy.R;
+
+public class EsqueceuSenha2 extends AppCompatActivity {
 
     private EditText codigoEditText;
 
@@ -31,22 +33,22 @@ public class EsqueceuSenha2Activity extends AppCompatActivity {
         Button continuarButton = findViewById(R.id.esque2_btnContinuar);
         continuarButton.setOnClickListener(v -> {
             String codigo = codigoEditText.getText().toString().trim();
-            if (isValidCodigo(codigo)) {
-                telaEsqueceuSenha3();
+            if (codigo.equals("000 000")) {
+                String email = getIntent().getStringExtra("email");
+                if (email != null) {
+                    // Pass the email to EsqueceuSenha3
+                    Intent intent = new Intent(EsqueceuSenha2.this, EsqueceuSenha3.class);
+                    intent.putExtra("email", email);
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
+                } else {
+                    Toast.makeText(EsqueceuSenha2.this, "Erro ao recuperar o email", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
             } else {
-                Toast.makeText(EsqueceuSenha2Activity.this, "Digite um código válido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EsqueceuSenha2.this, "Digite um código válido", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    private void telaEsqueceuSenha3() {
-        Intent intent = new Intent(this, EsqueceuSenha3Activity.class);
-        startActivity(intent);
-        overridePendingTransition(0, 0);
-    }
-
-    private boolean isValidCodigo(String codigo) {
-        return codigo.length() == 7;
     }
 
     private class CodigoTextWatcher implements TextWatcher {
@@ -89,7 +91,6 @@ public class EsqueceuSenha2Activity extends AppCompatActivity {
                 codigoEditText.setSelection(codigo.length());
                 codigoEditText.addTextChangedListener(this);
             }
-
 
             if (codigo.length() < 6) {
                 codigoEditText.setError("Digite 6 dígitos");

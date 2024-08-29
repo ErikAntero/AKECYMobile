@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/img_background"
-    tools:context=".MainActivity">
+    tools:context=".view.usuario.MainActivity">
 
     <TextView
         android:id="@+id/cadastro2_erro_dataDeNascimento"
@@ -136,6 +136,6 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logo" />
+        app:srcCompat="@drawable/img_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

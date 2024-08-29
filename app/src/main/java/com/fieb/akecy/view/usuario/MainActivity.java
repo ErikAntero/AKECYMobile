@@ -1,4 +1,4 @@
-package com.fieb.akecy;
+package com.fieb.akecy.view.usuario;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +10,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.fieb.akecy.R;
 import com.fieb.akecy.controller.LoginController;
+import com.fieb.akecy.view.novos.Novos;
 
 public class MainActivity extends AppCompatActivity {
 
-    private LoginController loginController;
     private EditText emailEditText, senhaEditText;
 
     @Override
@@ -34,52 +35,57 @@ public class MainActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.login_email);
         senhaEditText = findViewById(R.id.login_senha);
 
-        loginController = new LoginController();
-
         entrarButton.setOnClickListener(v -> {
             String email = emailEditText.getText().toString().trim();
             String senha = senhaEditText.getText().toString().trim();
 
             if (email.isEmpty() || senha.isEmpty()) {
                 Toast.makeText(MainActivity.this, "Por favor, insira os seus dados", Toast.LENGTH_SHORT).show();
-            } else if (email.isEmpty()) {
-                Toast.makeText(MainActivity.this, "Por favor, insira o seu email", Toast.LENGTH_SHORT).show();
-            } else if (senha.isEmpty()) {
-                Toast.makeText(MainActivity.this, "Por favor, insira a sua senha", Toast.LENGTH_SHORT).show();
             } else {
-                loginController.validarLogin(MainActivity.this, email, senha, new LoginController.OnLoginValidatedListener() {
-                    @Override
-                    public void onLoginSuccess() {
-                        Log.d("MainActivity", "Login bem-sucedido! Iniciando próxima activity...");
-                        Toast.makeText(MainActivity.this, "Login realizado com sucesso", Toast.LENGTH_SHORT).show();
-                        telaInicio();
-                    }
+                LoginController loginController = new LoginController();
+                LoginController.LoginResult loginResult = loginController.validarLogin(MainActivity.this, email, senha);
 
-                    @Override
-                    public void onLoginFailure() {
-                        Toast.makeText(MainActivity.this, "Email ou senha incorretos", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                switch (loginResult.status) {
+                    case 0:
+                        if (loginResult.nivelAcesso.equals("ADMIN")) {
+                            Toast.makeText(MainActivity.this, "Nível de acesso ADMIN, por favor, entre pelo sistema web", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(MainActivity.this, "Login realizado com sucesso", Toast.LENGTH_SHORT).show();
+                            telaInicio();
+                        }
+                        break;
+                    case 1:
+                        Toast.makeText(MainActivity.this, "Email não encontrado", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        Toast.makeText(MainActivity.this, "Senha incorreta", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 3:
+                        Toast.makeText(MainActivity.this, "Conta bloqueada", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        Toast.makeText(MainActivity.this, "Erro ao realizar o login", Toast.LENGTH_SHORT).show();
+                        break;
+                }
             }
         });
     }
 
-
     private void telaInicio() {
         Log.d("MainActivity", "telaInicio() chamado");
-        Intent intent = new Intent(this, NovosActivity.class);
+        Intent intent = new Intent(this, Novos.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
     }
 
     private void telaCadastro() {
-        Intent intent = new Intent(this, CadastroActivity.class);
+        Intent intent = new Intent(this, Cadastro.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
     }
 
     private void telaEsqueceuSenha() {
-        Intent intent = new Intent(this, EsqueceuSenhaActivity.class);
+        Intent intent = new Intent(this, EsqueceuSenha.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
     }

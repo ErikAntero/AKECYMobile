@@ -1,81 +1,46 @@
 package com.fieb.akecy.controller;
 
 import android.content.Context;
-import android.os.AsyncTask;
-import android.util.Log;
-
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import com.fieb.akecy.api.ConexaoSQL;
 
 public class LoginController {
 
-    public void validarLogin(Context context, String email, String senha, OnLoginValidatedListener listener) {
-        new ValidarLoginTask(context, email, senha, listener).execute();
+    public class LoginResult {
+        public int status;
+        public String nivelAcesso;
+
+        public LoginResult(int status, String nivelAcesso) {
+            this.status = status;
+            this.nivelAcesso = nivelAcesso;
+        }
     }
 
-    private static class ValidarLoginTask extends AsyncTask<Void, Void, Boolean> {
-        private final Context context;
-        private final String email;
-        private final String senha;
-        private final OnLoginValidatedListener listener;
+    public LoginResult validarLogin(Context context, String email, String senha) {
+        try {
+            PreparedStatement pstSenha = ConexaoSQL.conectar(context).prepareStatement(
+                    "SELECT email, senha, statusUsuario, nivelAcesso FROM Usuarios WHERE email=? AND senha=?");
+            pstSenha.setString(1, email);
+            pstSenha.setString(2, senha);
+            ResultSet resSenha = pstSenha.executeQuery();
 
-        public ValidarLoginTask(Context context, String email, String senha, OnLoginValidatedListener listener) {
-            this.context = context;
-            this.email = email;
-            this.senha = senha;
-            this.listener = listener;
-        }
+            if (resSenha.next()) {
+                String statusUsuario = resSenha.getString("statusUsuario");
+                String nivelAcesso = resSenha.getString("nivelAcesso");
 
-        @Override
-        protected Boolean doInBackground(Void... voids) {
-            try {
-                Connection conn = ConexaoSQL.conectar(context);
-
-                if (conn == null) {
-                    return false;
-                }
-
-                String sql = "SELECT codStatusUsuario FROM Usuarios WHERE email = ? AND senha = ?";
-                PreparedStatement pst = conn.prepareStatement(sql);
-                pst.setString(1, email);
-                pst.setString(2, senha);
-
-                ResultSet rs = pst.executeQuery();
-
-                if (rs.next()) {
-                    int codStatusUsuario = rs.getInt("codStatusUsuario"); // Recupere como inteiro
-                    Log.d("LoginController", "codStatusUsuario = " + codStatusUsuario);
-
-                    return codStatusUsuario == 1; // Compare com 1 (ativo)
+                if (statusUsuario.equals("INATIVO")) {
+                    return new LoginResult(3, nivelAcesso);
                 } else {
-                    Log.d("LoginController", "Nenhum usuário encontrado com o email e senha fornecidos");
-                    return false;
+                    return new LoginResult(0, nivelAcesso);
                 }
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(Boolean loginValido) {
-            Log.d("LoginController", "onPostExecute chamado. loginValido = " + loginValido); // Log para verificar se o método é chamado
-
-            if (loginValido) {
-                listener.onLoginSuccess();
             } else {
-                listener.onLoginFailure();
+                return new LoginResult(2, null);
             }
-        }
-    }
 
-    public interface OnLoginValidatedListener {
-        void onLoginSuccess();
-        void onLoginFailure();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new LoginResult(-1, null);
+        }
     }
 }

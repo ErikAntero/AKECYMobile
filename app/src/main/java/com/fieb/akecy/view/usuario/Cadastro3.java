@@ -1,4 +1,4 @@
-package com.fieb.akecy;
+package com.fieb.akecy.view.usuario;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -11,13 +11,18 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.fieb.akecy.model.Usuario;
+import com.fieb.akecy.controller.UsuarioController;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Cadastro3Activity extends AppCompatActivity {
+import com.fieb.akecy.R;
+
+public class Cadastro3 extends AppCompatActivity {
 
     private EditText senhaEditText, senha2EditText;
     private ImageView checkMinLength, checkUppercase, checkSymbol, checkNumber;
+    private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,14 +70,30 @@ public class Cadastro3Activity extends AppCompatActivity {
 
         cadastrarButton.setOnClickListener(v -> {
             if (validatePassword()) {
-                Toast.makeText(Cadastro3Activity.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Cadastro3Activity.this, MainActivity.class);
-                startActivity(intent);
-                overridePendingTransition(0, 0);
-                finish();
+                usuario.setSenha(senhaEditText.getText().toString());
+
+                UsuarioController usuarioController = new UsuarioController();
+                boolean cadastroSucedido = usuarioController.cadastrarUsuario(Cadastro3.this, usuario);
+
+                if (cadastroSucedido) {
+                    Toast.makeText(Cadastro3.this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Cadastro3.this, MainActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
+                    finish();
+                } else {
+                    Toast.makeText(Cadastro3.this, "Erro ao cadastrar usuário", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            usuario = (Usuario) bundle.getSerializable("usuario");
+        } else {
+            Toast.makeText(Cadastro3.this, "Erro ao recuperar dados do usuário", Toast.LENGTH_SHORT).show();
+            finish();
+        }
     }
 
     @SuppressLint("SetTextI18n")

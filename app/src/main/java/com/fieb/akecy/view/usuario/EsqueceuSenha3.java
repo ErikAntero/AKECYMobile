@@ -1,4 +1,4 @@
-package com.fieb.akecy;
+package com.fieb.akecy.view.usuario;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -15,7 +15,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class EsqueceuSenha3Activity extends AppCompatActivity {
+import com.fieb.akecy.R;
+import com.fieb.akecy.controller.EsqueceuSenhaController;
+
+public class EsqueceuSenha3 extends AppCompatActivity {
 
     private EditText novaSenhaEditText, confirmarSenhaEditText;
     private ImageView checkMinLength, checkUppercase, checkSymbol, checkNumber;
@@ -64,10 +67,23 @@ public class EsqueceuSenha3Activity extends AppCompatActivity {
         Button continuarButton = findViewById(R.id.esque3_btnContinuar);
         continuarButton.setOnClickListener(v -> {
             if (validatePassword()) {
-                Toast.makeText(EsqueceuSenha3Activity.this, "Senha alter com sucesso!", Toast.LENGTH_SHORT).show();
-                telaActivityMain();
+                String email = getIntent().getStringExtra("email");
+                String novaSenha = novaSenhaEditText.getText().toString();
+
+                if (email != null) {
+                    EsqueceuSenhaController controller = new EsqueceuSenhaController();
+                    if (controller.atualizarSenha(EsqueceuSenha3.this, email, novaSenha)) {
+                        Toast.makeText(EsqueceuSenha3.this, "Senha alterada com sucesso!", Toast.LENGTH_SHORT).show();
+                        telaActivityMain();
+                    } else {
+                        Toast.makeText(EsqueceuSenha3.this, "Erro ao alterar a senha", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(EsqueceuSenha3.this, "Erro ao recuperar o email", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
             } else {
-                Toast.makeText(EsqueceuSenha3Activity.this, "Por favor, verifique os campos.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(EsqueceuSenha3.this, "Por favor, verifique os campos.", Toast.LENGTH_SHORT).show();
             }
         });
 

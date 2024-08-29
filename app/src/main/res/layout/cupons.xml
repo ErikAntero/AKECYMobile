@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_logo"
+        app:srcCompat="@drawable/img_logo"
         android:contentDescription="@string/app_name" />
 
     <RelativeLayout
@@ -66,16 +66,16 @@
                 tools:ignore="UseCompoundDrawables">
 
                 <ImageView
-                    android:id="@+id/ic_promocoes"
+                    android:id="@+id/ic_cupons"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:src="@drawable/ic_promocoes2"
-                    android:contentDescription="@string/promotions" />
+                    android:src="@drawable/ic_cupons2"
+                    android:contentDescription="@string/coupons" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/promotions"
+                    android:text="@string/coupons"
                     android:textColor="#FFA600"
                     android:textSize="12sp" />
             </LinearLayout>
