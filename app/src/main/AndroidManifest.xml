@@ -20,10 +20,6 @@
         <activity
             android:name=".view.usuario.MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity android:name=".view.usuario.Cadastro" />
@@ -34,9 +30,16 @@
         <activity android:name=".view.usuario.EsqueceuSenha3" />
         <activity android:name=".view.novos.Novos"></activity>
         <activity android:name=".view.cupons.Cupons"/>
+        <activity android:name=".view.cupons.CuponsCashback"/>
+        <activity android:name=".view.cupons.CuponsDescontos"/>
         <activity android:name=".view.pesquisar.Pesquisar"/>
         <activity android:name=".view.favoritos.Favoritos"/>
-        <activity android:name=".view.conta.Conta"/>
+        <activity android:name=".view.conta.Conta"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter> </activity>
 
     </application>
 

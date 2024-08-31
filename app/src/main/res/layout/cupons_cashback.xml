@@ -142,11 +142,11 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="100dp"
+        android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_logo"
-        android:contentDescription="@string/app_name" />
+        app:srcCompat="@drawable/img_logo" />
 
     <TextView
         android:id="@+id/cupons_filtrar"
