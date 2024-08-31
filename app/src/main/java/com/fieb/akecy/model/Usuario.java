@@ -7,6 +7,7 @@ public class Usuario implements Serializable {
     private String email;
     private String telefone;
     private String dataNasc;
+    private String sexo;
     private String cpf;
     private String senha;
 
@@ -40,6 +41,14 @@ public class Usuario implements Serializable {
 
     public void setDataNasc(String dataNasc) {
         this.dataNasc = dataNasc;
+    }
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
     public String getCpf() {

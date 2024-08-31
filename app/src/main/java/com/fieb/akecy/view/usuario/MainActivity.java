@@ -1,6 +1,8 @@
 package com.fieb.akecy.view.usuario;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -50,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
                         if (loginResult.nivelAcesso.equals("ADMIN")) {
                             Toast.makeText(MainActivity.this, "Nível de acesso ADMIN, por favor, entre pelo sistema web", Toast.LENGTH_SHORT).show();
                         } else {
+                            SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("userEmail", email);
+                            editor.putBoolean("isLoggedIn", true);
+                            editor.apply();
+
                             Toast.makeText(MainActivity.this, "Login realizado com sucesso", Toast.LENGTH_SHORT).show();
                             telaInicio();
                         }
@@ -69,10 +77,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+        if (isLoggedIn) {
+            telaInicio();
+        }
     }
 
     private void telaInicio() {
         Log.d("MainActivity", "telaInicio() chamado");
+
         Intent intent = new Intent(this, Novos.class);
         startActivity(intent);
         overridePendingTransition(0, 0);

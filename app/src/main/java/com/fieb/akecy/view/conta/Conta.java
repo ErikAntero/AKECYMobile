@@ -13,6 +13,13 @@ import com.fieb.akecy.view.favoritos.Favoritos;
 import com.fieb.akecy.view.novos.Novos;
 import com.fieb.akecy.view.pesquisar.Pesquisar;
 import com.fieb.akecy.view.cupons.Cupons;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.widget.Toast;
+
+import com.fieb.akecy.controller.UsuarioController;
+import com.fieb.akecy.model.Usuario;
+import com.fieb.akecy.view.usuario.MainActivity;
 
 public class Conta extends AppCompatActivity {
 
@@ -40,6 +47,27 @@ public class Conta extends AppCompatActivity {
         alterar = findViewById(R.id.alterarSenha);
         sair = findViewById(R.id.sairDaConta);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        String userEmail = sharedPreferences.getString("userEmail", "");
+
+        UsuarioController usuarioController = new UsuarioController();
+        Usuario usuario = usuarioController.buscarUsuarioPorEmail(this, userEmail);
+
+        if (usuario != null) {
+            nome.setText(usuario.getNome());
+            email.setText(usuario.getEmail());
+            cpf.setText(usuario.getCpf());
+            dataDeNascimento.setText(usuario.getDataNasc());
+            telefone.setText(usuario.getTelefone());
+            if (usuario.getSexo() == null) {
+                sexo.setText("-");
+            } else {
+                sexo.setText(usuario.getSexo());
+            }
+        } else {
+            Toast.makeText(Conta.this, "Erro ao recuperar dados do usuário", Toast.LENGTH_SHORT).show();
+        }
+
         icNovos.setOnClickListener(v -> {
             Intent intent = new Intent(Conta.this, Novos.class);
             startActivity(intent);
@@ -63,5 +91,22 @@ public class Conta extends AppCompatActivity {
             startActivity(intent);
             overridePendingTransition(0, 0);
         });
+
+        sair.setOnClickListener(v -> {
+            logout();
+        });
+    }
+
+    private void logout() {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putBoolean("isLoggedIn", false);
+
+        editor.apply();
+
+        Intent intent = new Intent(Conta.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

@@ -20,7 +20,7 @@ public class LoginController {
     public LoginResult validarLogin(Context context, String email, String senha) {
         try {
             PreparedStatement pstSenha = ConexaoSQL.conectar(context).prepareStatement(
-                    "SELECT email, senha, statusUsuario, nivelAcesso FROM Usuarios WHERE email=? AND senha=?");
+                    "SELECT email, senha, statusUsuario, nivelAcesso FROM Usuario WHERE email=? AND senha=?");
             pstSenha.setString(1, email);
             pstSenha.setString(2, senha);
             ResultSet resSenha = pstSenha.executeQuery();

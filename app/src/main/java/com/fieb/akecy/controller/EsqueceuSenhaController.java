@@ -10,7 +10,7 @@ public class EsqueceuSenhaController {
     public boolean verificarEmail(Context context, String email) {
         try {
             PreparedStatement pst = ConexaoSQL.conectar(context).prepareStatement(
-                    "SELECT COUNT(*) FROM Usuarios WHERE LOWER(email)=LOWER(?)");
+                    "SELECT COUNT(*) FROM Usuario WHERE LOWER(email)=LOWER(?)");
             pst.setString(1, email);
             ResultSet res = pst.executeQuery();
             res.next();
