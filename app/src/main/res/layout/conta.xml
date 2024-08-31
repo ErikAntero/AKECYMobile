@@ -7,7 +7,7 @@
     android:background="@color/black">
 
     <Button
-        android:id="@+id/conta_editarDados"
+        android:id="@+id/editarDados"
         android:layout_width="336dp"
         android:layout_height="50dp"
         android:layout_marginBottom="10dp"
@@ -16,7 +16,7 @@
         android:textColor="#FFFFFF"
         android:textSize="19sp"
         app:cornerRadius="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/conta_editarDados2"
+        app:layout_constraintBottom_toTopOf="@+id/alterarSenha"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:strokeColor="#FFA600"
@@ -24,7 +24,7 @@
         tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/conta_editarDados2"
+        android:id="@+id/alterarSenha"
         android:layout_width="336dp"
         android:layout_height="50dp"
         android:layout_marginBottom="10dp"
@@ -33,7 +33,7 @@
         android:textColor="#D5D5D5"
         android:textSize="19sp"
         app:cornerRadius="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/conta_editarDados3"
+        app:layout_constraintBottom_toTopOf="@+id/sairDaConta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:strokeColor="#D5D5D5"
@@ -41,7 +41,7 @@
         tools:ignore="TextContrastCheck" />
 
     <Button
-        android:id="@+id/conta_editarDados3"
+        android:id="@+id/sairDaConta"
         android:layout_width="336dp"
         android:layout_height="50dp"
         android:layout_marginBottom="50dp"
@@ -58,38 +58,36 @@
         tools:ignore="TextContrastCheck" />
 
     <TextView
-        android:id="@+id/conta_genero"
+        android:id="@+id/conta_sexo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="230dp"
         android:layout_marginTop="20dp"
-        android:text="@string/gender"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23"
+        android:text="@string/sex"
         android:textColor="#ffffff"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pessoalCPF" />
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/pessoalSexo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="230dp"
         android:layout_marginTop="4dp"
-        android:text="TextView"
+        android:textColor="#cdcdcd"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conta_dataDeBascimento"
-        android:textColor="#cdcdcd"/>
+        app:layout_constraintTop_toBottomOf="@+id/conta_dataDeBascimento" />
 
     <TextView
-        android:id="@+id/textView29"
+        android:id="@+id/pessoalTelefone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="5dp"
-        android:text="TextView"
+        android:textColor="#cdcdcd"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conta_telefone"
-        android:textColor="#cdcdcd"/>
+        app:layout_constraintTop_toBottomOf="@+id/conta_telefone" />
 
     <TextView
         android:id="@+id/conta_telefone"
@@ -99,20 +97,19 @@
         android:layout_marginTop="20dp"
         android:text="@string/number"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView26"
+        app:layout_constraintTop_toBottomOf="@+id/pessoalDataDeNascimento"
         android:textColor="#ffffff"
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/textView26"
+        android:id="@+id/pessoalDataDeNascimento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="5dp"
-        android:text="TextView"
+        android:textColor="#cdcdcd"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conta_dataDeBascimento"
-        android:textColor="#cdcdcd"/>
+        app:layout_constraintTop_toBottomOf="@+id/conta_dataDeBascimento" />
 
     <TextView
         android:id="@+id/conta_dataDeBascimento"
@@ -122,7 +119,7 @@
         android:layout_marginTop="20dp"
         android:text="@string/date_of_birth"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23"
+        app:layout_constraintTop_toBottomOf="@+id/pessoalCPF"
         android:textColor="#ffffff"
         android:textStyle="bold"/>
 
@@ -134,20 +131,19 @@
         android:layout_marginTop="20dp"
         android:text="@string/cpf"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView21"
+        app:layout_constraintTop_toBottomOf="@+id/pessoalEmail"
         android:textColor="#ffffff"
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/pessoalCPF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="5dp"
-        android:text="TextView"
+        android:textColor="#cdcdcd"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conta_cpf"
-        android:textColor="#cdcdcd"/>
+        app:layout_constraintTop_toBottomOf="@+id/conta_cpf" />
 
     <LinearLayout
         android:id="@+id/bottom_navigation"
@@ -311,30 +307,28 @@
         android:layout_marginTop="20dp"
         android:text="@string/email"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView17"
+        app:layout_constraintTop_toBottomOf="@+id/pessoalNome"
         android:textColor="#ffffff"
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/textView21"
+        android:id="@+id/pessoalEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="5dp"
-        android:text="TextView"
+        android:textColor="#cdcdcd"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conta_email"
-        android:textColor="#cdcdcd"/>
+        app:layout_constraintTop_toBottomOf="@+id/conta_email" />
 
     <TextView
-        android:id="@+id/textView17"
+        android:id="@+id/pessoalNome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="5dp"
-        android:text="TextView"
+        android:textColor="#cdcdcd"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conta_nome"
-        android:textColor="#cdcdcd"/>
+        app:layout_constraintTop_toBottomOf="@+id/conta_nome" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

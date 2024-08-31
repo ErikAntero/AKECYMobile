@@ -167,7 +167,7 @@
         android:layout_marginStart="35dp"
         android:layout_marginTop="14dp"
         android:text="@string/recent"
-        android:textColor="#cdcdcd"
+        android:textColor="#FFA600"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cupons_filtrar" />
 
@@ -199,7 +199,7 @@
         android:layout_height="1dp"
         android:layout_marginStart="28dp"
         android:layout_marginTop="2dp"
-        android:background="#CDCDCD"
+        android:background="#FFA600"
         android:rotation="-360"
         android:rotationX="-360"
         android:rotationY="-360"

@@ -36,7 +36,6 @@ public class EsqueceuSenha2 extends AppCompatActivity {
             if (codigo.equals("000 000")) {
                 String email = getIntent().getStringExtra("email");
                 if (email != null) {
-                    // Pass the email to EsqueceuSenha3
                     Intent intent = new Intent(EsqueceuSenha2.this, EsqueceuSenha3.class);
                     intent.putExtra("email", email);
                     startActivity(intent);

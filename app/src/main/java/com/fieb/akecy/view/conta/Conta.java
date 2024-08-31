@@ -2,7 +2,9 @@ package com.fieb.akecy.view.conta;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +17,8 @@ import com.fieb.akecy.view.cupons.Cupons;
 public class Conta extends AppCompatActivity {
 
     ImageView icNovos, icCupons, icPesquisar, icFavoritos, icConta;
+    TextView nome, email, cpf, dataDeNascimento, sexo, telefone;
+    Button editar, alterar, sair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,15 @@ public class Conta extends AppCompatActivity {
         icPesquisar = findViewById(R.id.ic_pesquisar);
         icFavoritos = findViewById(R.id.ic_favoritos);
         icConta = findViewById(R.id.ic_conta);
+        nome = findViewById(R.id.pessoalNome);
+        email = findViewById(R.id.pessoalEmail);
+        cpf = findViewById(R.id.pessoalCPF);
+        dataDeNascimento = findViewById(R.id.pessoalDataDeNascimento);
+        sexo = findViewById(R.id.pessoalSexo);
+        telefone = findViewById(R.id.pessoalTelefone);
+        editar = findViewById(R.id.editarDados);
+        alterar = findViewById(R.id.alterarSenha);
+        sair = findViewById(R.id.sairDaConta);
 
         icNovos.setOnClickListener(v -> {
             Intent intent = new Intent(Conta.this, Novos.class);

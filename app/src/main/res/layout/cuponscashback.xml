@@ -142,14 +142,14 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="100dp"
+        android:contentDescription="@string/app_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_logo"
-        android:contentDescription="@string/app_name" />
+        app:srcCompat="@drawable/img_logo" />
 
     <TextView
-        android:id="@+id/cupons_filtrar"
+        android:id="@+id/cupons_cashback_filtrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -161,7 +161,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/cupons_recentes"
+        android:id="@+id/cupons_cashback_recentes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
@@ -169,10 +169,10 @@
         android:text="@string/recent"
         android:textColor="#cdcdcd"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cupons_filtrar" />
+        app:layout_constraintTop_toBottomOf="@+id/cupons_cashback_filtrar" />
 
     <TextView
-        android:id="@+id/cupons_descontos"
+        android:id="@+id/cupons_cashback_descontos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
@@ -180,18 +180,18 @@
         android:text="@string/discounts"
         android:textColor="#cdcdcd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cupons_filtrar" />
+        app:layout_constraintTop_toBottomOf="@+id/cupons_cashback_filtrar" />
 
     <TextView
-        android:id="@+id/cupons_cashback"
+        android:id="@+id/cupons_cashback_cashback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
         android:text="@string/cashback"
-        android:textColor="#cdcdcd"
-        app:layout_constraintEnd_toStartOf="@+id/cupons_descontos"
-        app:layout_constraintStart_toEndOf="@+id/cupons_recentes"
-        app:layout_constraintTop_toBottomOf="@+id/cupons_filtrar" />
+        android:textColor="#FFA600"
+        app:layout_constraintEnd_toStartOf="@+id/cupons_cashback_descontos"
+        app:layout_constraintStart_toEndOf="@+id/cupons_cashback_recentes"
+        app:layout_constraintTop_toBottomOf="@+id/cupons_cashback_filtrar" />
 
     <View
         android:id="@+id/view2"
@@ -204,7 +204,7 @@
         android:rotationX="-360"
         android:rotationY="-360"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cupons_recentes" />
+        app:layout_constraintTop_toBottomOf="@+id/cupons_cashback_recentes" />
 
     <View
         android:id="@+id/view3"
@@ -214,7 +214,7 @@
         android:layout_marginTop="2dp"
         android:background="#CDCDCD"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cupons_descontos" />
+        app:layout_constraintTop_toBottomOf="@+id/cupons_cashback_descontos" />
 
     <View
         android:id="@+id/view4"
@@ -222,8 +222,8 @@
         android:layout_height="1dp"
         android:layout_marginStart="140dp"
         android:layout_marginTop="2dp"
-        android:background="#CDCDCD"
+        android:background="#FFA600"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cupons_cashback" />
+        app:layout_constraintTop_toBottomOf="@+id/cupons_cashback_cashback" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
