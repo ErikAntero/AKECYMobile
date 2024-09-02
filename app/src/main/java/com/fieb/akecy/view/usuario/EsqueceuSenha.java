@@ -21,7 +21,7 @@ public class EsqueceuSenha extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.esqueceusenha);
+        setContentView(R.layout.esqueceu_senha);
 
         emailEditText = findViewById(R.id.esque_email);
         ImageButton voltarButton = findViewById(R.id.esque_voltar);

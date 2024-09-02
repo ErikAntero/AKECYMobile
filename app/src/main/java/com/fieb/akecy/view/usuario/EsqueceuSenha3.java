@@ -27,7 +27,7 @@ public class EsqueceuSenha3 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.esqueceusenha3);
+        setContentView(R.layout.esqueceu_senha3);
 
         novaSenhaEditText = findViewById(R.id.esque3_senha);
         confirmarSenhaEditText = findViewById(R.id.esque3_senha2);

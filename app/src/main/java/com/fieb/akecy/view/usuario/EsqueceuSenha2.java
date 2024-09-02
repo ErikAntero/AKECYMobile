@@ -21,7 +21,7 @@ public class EsqueceuSenha2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.esqueceusenha2);
+        setContentView(R.layout.esqueceu_senha2);
 
         codigoEditText = findViewById(R.id.esque2_codigo);
         codigoEditText.setInputType(InputType.TYPE_CLASS_NUMBER);

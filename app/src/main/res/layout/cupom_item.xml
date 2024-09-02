@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:backgroundTint="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:id="@+id/desconto"
+        android:layout_width="76dp"
+        android:layout_height="55dp"
+        android:gravity="center"
+        android:text="@string/place_holder"
+        android:textColor="#85C52E"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/descricao"
+        android:layout_width="145dp"
+        android:layout_height="35dp"
+        android:textColor="@color/white"
+        android:layout_marginStart="3dp"
+        android:text="@string/placeholder"
+        app:layout_constraintStart_toEndOf="@+id/desconto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/cashback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/placeholder"
+        android:textColor="#AA78D6"
+        app:layout_constraintStart_toEndOf="@+id/desconto"
+        app:layout_constraintTop_toBottomOf="@+id/descricao" />
+
+    <TextView
+        android:id="@+id/codigo"
+        android:layout_width="147dp"
+        android:layout_height="38dp"
+        android:background="@drawable/config_dotted_border"
+        android:gravity="center"
+        android:text="@string/placeholder"
+        android:textColor="#85C52E"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

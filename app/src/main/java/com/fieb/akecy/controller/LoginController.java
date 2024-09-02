@@ -3,6 +3,8 @@ package com.fieb.akecy.controller;
 import android.content.Context;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Base64;
+
 import com.fieb.akecy.api.ConexaoSQL;
 
 public class LoginController {
@@ -22,7 +24,10 @@ public class LoginController {
             PreparedStatement pstSenha = ConexaoSQL.conectar(context).prepareStatement(
                     "SELECT email, senha, statusUsuario, nivelAcesso FROM Usuario WHERE email=? AND senha=?");
             pstSenha.setString(1, email);
-            pstSenha.setString(2, senha);
+
+            String senhaCodificada = Base64.getEncoder().encodeToString(senha.getBytes());
+            pstSenha.setString(2, senhaCodificada);
+
             ResultSet resSenha = pstSenha.executeQuery();
 
             if (resSenha.next()) {

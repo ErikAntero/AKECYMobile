@@ -35,10 +35,12 @@
     <string name="account"> Conta </string>
     <string name="sex"> Sexo </string>
     <string name="edit_data"> Editar dados </string>
-    <string name="change_password"> Alterar senha  </string>
-    <string name="log_out"> Sair da conta  </string>
-    <string name="recent"> Mais recentes  </string>
-    <string name="cashback"> Com cashback  </string>
-    <string name="discounts"> Maiores descontos  </string>
-    <string name="filter_coupon"> Filtrar por  </string>
+    <string name="change_password"> Alterar senha </string>
+    <string name="log_out"> Sair da conta </string>
+    <string name="recent"> Mais recentes </string>
+    <string name="cashback"> Com cashback </string>
+    <string name="discounts"> Maiores descontos </string>
+    <string name="filter_coupon"> Filtrar por </string>
+    <string name="placeholder"> Placeholder </string>
+    <string name="place_holder"> Place holder </string>
 </resources>

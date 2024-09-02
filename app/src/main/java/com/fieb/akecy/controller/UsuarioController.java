@@ -7,6 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Base64;
+import java.util.Date;
+import java.util.Locale;
 
 import com.fieb.akecy.api.ConexaoSQL;
 import com.fieb.akecy.model.Usuario;
@@ -15,15 +19,24 @@ public class UsuarioController {
 
     public boolean cadastrarUsuario(Context context, Usuario usuario) {
         try {
+            String senhaCodificada = Base64.getEncoder().encodeToString(usuario.getSenha().getBytes());
+            usuario.setSenha(senhaCodificada);
+
+            Date dataAtual = new Date();
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+
+            String dataCadastroFormatada = dateFormat.format(dataAtual);
+
             PreparedStatement pst = ConexaoSQL.conectar(context).prepareStatement(
-                    "INSERT INTO Usuario (nome, email, senha, cpf , telefone, dataNasc, nivelAcesso, statusUsuario) " +
-                            "VALUES (?, ?, ?, ?, ?, ?, 'USER', 'ATIVO')");
+                    "INSERT INTO Usuario (nome, email, senha, cpf , telefone, dataNasc, dataCadastro, nivelAcesso, statusUsuario) " +
+                            "VALUES (?, ?, ?, ?, ?, ?, ?, 'USER', 'ATIVO')");
             pst.setString(1, usuario.getNome());
             pst.setString(2, usuario.getEmail());
             pst.setString(3, usuario.getSenha());
             pst.setString(4, usuario.getCpf());
             pst.setString(5, usuario.getTelefone());
             pst.setString(6, usuario.getDataNasc());
+            pst.setString(7, dataCadastroFormatada);
 
             int linhasAfetadas = pst.executeUpdate();
             return linhasAfetadas > 0;
@@ -52,7 +65,7 @@ public class UsuarioController {
             }
 
         } catch (Exception e) {
-            Log.e("UsuarioController", "Erro ao buscar usuário por e-mail: " + e.getMessage()); // Log de erro detalhado
+            Log.e("UsuarioController", "Erro ao buscar usuário por e-mail: " + e.getMessage());
             e.printStackTrace();
             return null;
         }
