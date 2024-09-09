@@ -148,4 +148,19 @@
         app:srcCompat="@drawable/img_logo"
         android:contentDescription="@string/app_name" />
 
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/recyclerViewFavoritos"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="100dp"
+
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

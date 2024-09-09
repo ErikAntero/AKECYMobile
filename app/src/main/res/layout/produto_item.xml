@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:backgroundTint="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white"
+    tools:ignore="MissingDefaultResource">
+
+
+    <ImageView
+        android:id="@+id/imagem_produto"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_placeholder"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nome_produto"
+        android:layout_width="168dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/placeholder"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imagem_produto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/descricao_produto"
+        android:layout_width="168dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="2dp"
+        android:text="@string/place_holder"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toEndOf="@+id/imagem_produto"
+        app:layout_constraintTop_toBottomOf="@+id/nome_produto" />
+
+    <TextView
+        android:id="@+id/preco_produto"
+        android:layout_width="96dp"
+        android:layout_height="32dp"
+        android:gravity="center"
+        android:text="@string/place_holder"
+        android:textColor="#85C52E"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/nome_produto"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/favoritar_produto"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/ic_favorito"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/descricao_produto"
+        app:layout_constraintTop_toBottomOf="@+id/preco_produto" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

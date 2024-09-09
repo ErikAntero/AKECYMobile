@@ -129,10 +129,10 @@ public class CuponsDescontos extends AppCompatActivity {
                     }
                 }
             }
-    } catch (SQLException e) {
-        e.printStackTrace();
-        Toast.makeText(this, "Erro ao buscar cupons com desconto", Toast.LENGTH_SHORT).show();
-    }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Erro ao buscar cupons com desconto", Toast.LENGTH_SHORT).show();
+        }
         return cuponsDesconto;
-}
+    }
 }
