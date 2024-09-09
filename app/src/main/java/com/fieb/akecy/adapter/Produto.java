@@ -1,6 +1,8 @@
 package com.fieb.akecy.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -8,8 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.fieb.akecy.R;
 
 import java.util.List;
@@ -32,6 +36,7 @@ public class Produto extends RecyclerView.Adapter<Produto.ProdutoViewHolder> {
         return new ProdutoViewHolder(itemView);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ProdutoViewHolder holder, int position) {
         com.fieb.akecy.model.Produto produto = listaProdutos.get(position);
@@ -49,7 +54,12 @@ public class Produto extends RecyclerView.Adapter<Produto.ProdutoViewHolder> {
         holder.descricaoProduto.setText(produto.getDescricao());
         holder.precoProduto.setText("R$ " + produto.getPreco());
 
-    };
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, com.fieb.akecy.view.produto.Produto.class);
+            intent.putExtra("idProduto", produto.getIdProduto());
+            context.startActivity(intent);
+        });
+    }
 
     @Override
     public int getItemCount() {

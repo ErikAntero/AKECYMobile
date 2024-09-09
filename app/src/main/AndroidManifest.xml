@@ -39,6 +39,7 @@
         <activity android:name=".view.pesquisar.Pesquisar"/>
         <activity android:name=".view.favoritos.Favoritos"/>
         <activity android:name=".view.conta.Conta"/>
+        <activity android:name=".view.produto.Produto"/>
 
     </application>
 

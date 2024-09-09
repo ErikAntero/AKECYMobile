@@ -7,14 +7,28 @@
     android:layout_height="match_parent">
 
 
+    <TextView
+        android:id="@+id/preco"
+        android:layout_width="96dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="@string/place_holder"
+        android:textColor="#85C52E"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foto5" />
+
     <ImageView
         android:id="@+id/favoritar_produto4"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voltar"
         app:srcCompat="@drawable/ic_favorito" />
 
     <ImageButton
@@ -32,8 +46,8 @@
 
     <TextView
         android:id="@+id/nome"
-        android:layout_width="372dp"
-        android:layout_height="27dp"
+        android:layout_width="276dp"
+        android:layout_height="29dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="@string/placeholder"
@@ -45,7 +59,7 @@
 
     <TextView
         android:id="@+id/descricao"
-        android:layout_width="372dp"
+        android:layout_width="275dp"
         android:layout_height="55dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="52dp"
@@ -55,8 +69,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/voltar" />
 
+    <TextView
+        android:id="@+id/descricao_completa"
+        android:layout_width="371dp"
+        android:layout_height="268dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/placeholder"
+        android:textColor="@color/white"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preco" />
+
+    <TextView
+        android:id="@+id/tamanhos_disponiveis"
+        android:layout_width="144dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/sizes"
+
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foto1" />
+
+    <TextView
+        android:id="@+id/tamanhos2"
+        android:layout_width="100dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="168dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/placeholder"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foto1" />
+
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/foto1"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginStart="20dp"
@@ -66,46 +122,42 @@
         app:srcCompat="@drawable/img_placeholder" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/foto4"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4"
+        app:layout_constraintEnd_toStartOf="@+id/foto5"
+        app:layout_constraintStart_toEndOf="@+id/foto1"
+        app:layout_constraintTop_toBottomOf="@+id/foto2"
         app:srcCompat="@drawable/img_placeholder" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/foto5"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintTop_toBottomOf="@+id/foto3"
         app:srcCompat="@drawable/img_placeholder" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/foto2"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/foto3"
+        app:layout_constraintStart_toEndOf="@+id/foto1"
         app:layout_constraintTop_toBottomOf="@+id/descricao"
         app:srcCompat="@drawable/img_placeholder" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/foto3"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
         app:layout_constraintTop_toBottomOf="@+id/descricao"
         app:srcCompat="@drawable/img_placeholder" />
 

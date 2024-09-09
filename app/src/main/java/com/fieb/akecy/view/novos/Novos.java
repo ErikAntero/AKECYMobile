@@ -1,5 +1,6 @@
 package com.fieb.akecy.view.novos;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -77,6 +78,7 @@ public class Novos extends AppCompatActivity {
         });
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private void carregarProdutos() {
         Connection conn = ConexaoSQL.conectar(this);
         if (conn != null) {
