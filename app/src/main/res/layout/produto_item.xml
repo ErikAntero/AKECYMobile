@@ -56,10 +56,11 @@
         app:layout_constraintStart_toEndOf="@+id/nome_produto"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/favoritar_produto"
+    <ImageButton
+        android:id="@+id/favorito_button"
         android:layout_width="45dp"
         android:layout_height="45dp"
+        android:background="@color/black"
         android:src="@drawable/ic_favorito"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

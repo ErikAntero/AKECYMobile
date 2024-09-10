@@ -13,8 +13,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.fieb.akecy.R;
+import com.fieb.akecy.api.ConexaoSQL;
 import com.fieb.akecy.controller.LoginController;
 import com.fieb.akecy.view.novos.Novos;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,14 +58,21 @@ public class MainActivity extends AppCompatActivity {
                         if (loginResult.nivelAcesso.equals("ADMIN")) {
                             Toast.makeText(MainActivity.this, "Nível de acesso ADMIN, por favor, entre pelo sistema web", Toast.LENGTH_SHORT).show();
                         } else {
-                            SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("userEmail", email);
-                            editor.putBoolean("isLoggedIn", true);
-                            editor.apply();
+                            int idUsuario = obterIdUsuarioPorEmail(email);
 
-                            Toast.makeText(MainActivity.this, "Login realizado com sucesso", Toast.LENGTH_SHORT).show();
-                            telaInicio();
+                            if (idUsuario != -1) {
+                                SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putInt("userId", idUsuario);
+                                editor.putString("userEmail", email);
+                                editor.putBoolean("isLoggedIn", true);
+                                editor.apply();
+
+                                Toast.makeText(MainActivity.this, "Login realizado com sucesso", Toast.LENGTH_SHORT).show();
+                                telaInicio();
+                            } else {
+                                Toast.makeText(MainActivity.this, "Erro ao obter dados do usuário", Toast.LENGTH_SHORT).show();
+                            }
                         }
                         break;
                     case 1:
@@ -103,5 +116,25 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, EsqueceuSenha.class);
         startActivity(intent);
         overridePendingTransition(0, 0);
+    }
+
+    private int obterIdUsuarioPorEmail(String email) {
+        try (Connection conn = ConexaoSQL.conectar(this)) {
+            if (conn != null) {
+                String query = "SELECT idUsuario FROM Usuario WHERE email = ?";
+                try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                    stmt.setString(1, email);
+                    try (ResultSet rs = stmt.executeQuery()) {
+                        if (rs.next()) {
+                            return rs.getInt("idUsuario");
+                        }
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Erro ao obter dados do usuário", Toast.LENGTH_SHORT).show();
+        }
+        return -1;
     }
 }

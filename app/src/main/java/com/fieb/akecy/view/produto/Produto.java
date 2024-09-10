@@ -1,6 +1,8 @@
 package com.fieb.akecy.view.produto;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -13,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.fieb.akecy.R;
 import com.fieb.akecy.api.ConexaoSQL;
+import com.fieb.akecy.controller.FavoritoController;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,7 +26,7 @@ public class Produto extends AppCompatActivity {
 
     ImageView foto1, foto2, foto3, foto4, foto5;
     TextView nome, descricao, descricaoCompleta, tamanhosDisponiveis, preco;
-    ImageButton voltar;
+    ImageButton voltar, favoritoButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,7 @@ public class Produto extends AppCompatActivity {
         tamanhosDisponiveis = findViewById(R.id.tamanhos2);
         preco = findViewById(R.id.preco);
         voltar = findViewById(R.id.voltar);
+        favoritoButton = findViewById(R.id.favorito_button); // Certifique-se de que você tem esse botão no seu layout
 
         int idProduto = getIntent().getIntExtra("idProduto", -1);
 
@@ -49,6 +53,38 @@ public class Produto extends AppCompatActivity {
 
             if (produto != null) {
                 preencherTelaComDadosDoProduto(produto);
+
+                SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+                int idUsuario = sharedPreferences.getInt("userId", -1);
+
+                if (idUsuario != -1) {
+                    final boolean[] isFavorito = {isProdutoFavoritado(idUsuario, idProduto)};
+
+                    if (isFavorito[0]) {
+                        favoritoButton.setImageResource(R.drawable.ic_favorito2);
+                    } else {
+                        favoritoButton.setImageResource(R.drawable.ic_favorito);
+                    }
+
+                    favoritoButton.setOnClickListener(v -> {
+                        FavoritoController favoritoController = new FavoritoController();
+                        boolean sucesso = favoritoController.favoritarProduto(this, idUsuario, idProduto);
+
+                        if (sucesso) {
+                            if (isFavorito[0]) {
+                                favoritoButton.setImageResource(R.drawable.ic_favorito);
+                                isFavorito[0] = false;
+                            } else {
+                                favoritoButton.setImageResource(R.drawable.ic_favorito2);
+                                isFavorito[0] = true;
+                            }
+                        } else {
+                            Toast.makeText(this, "Erro ao favoritar/desfavoritar produto", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    favoritoButton.setEnabled(false);
+                }
             } else {
                 Toast.makeText(this, "Produto não encontrado", Toast.LENGTH_SHORT).show();
                 finish();
@@ -125,5 +161,26 @@ public class Produto extends AppCompatActivity {
         } else {
             imageView.setImageResource(R.drawable.img_black);
         }
+    }
+
+    private boolean isProdutoFavoritado(int idUsuario, int idProduto) {
+        try (Connection conn = ConexaoSQL.conectar(this)) {
+            if (conn != null) {
+                String query = "SELECT * FROM Favorito WHERE idUsuario = ? AND idProduto = ?";
+                try (PreparedStatement stmt = conn.prepareStatement(query)) {
+                    stmt.setInt(1, idUsuario);
+                    stmt.setInt(2, idProduto);
+                    try (ResultSet rs = stmt.executeQuery()) {
+                        return rs.next();
+                    }
+                }
+            } else {
+                Toast.makeText(this, "Erro de conexão com o banco de dados", Toast.LENGTH_SHORT).show();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Erro ao verificar favorito", Toast.LENGTH_SHORT).show();
+        }
+        return false;
     }
 }

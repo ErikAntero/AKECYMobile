@@ -44,4 +44,5 @@
     <string name="placeholder"> Placeholder </string>
     <string name="place_holder"> Place holder </string>
     <string name="sizes"> Tamanhos Dísponiveis </string>
+    <string name="no_favorite"> Nenhum produto favoritado </string>
 </resources>
