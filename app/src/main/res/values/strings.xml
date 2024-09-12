@@ -52,5 +52,6 @@
     <string name="insert_cpf"> Insira seu CPF </string>
     <string name="insert_date_of_birth"> Insira sua Data de Nascimento </string>
     <string name="insert_number"> Insira seu Telefone </string>
+    <string name="passwords_do_not_match"> As senhas não coincidem </string>
 
 </resources>

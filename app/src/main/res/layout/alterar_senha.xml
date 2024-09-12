@@ -6,6 +6,16 @@
     android:background="@drawable/img_background"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/erro_as"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColor="#FF3333"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmar_nova_senha_as" />
+
     <ImageButton
         android:id="@+id/voltar_as"
         android:layout_width="65dp"

@@ -92,6 +92,11 @@ public class Conta extends AppCompatActivity {
             overridePendingTransition(0, 0);
         });
 
+        alterar.setOnClickListener(v -> {
+            Intent intent = new Intent(Conta.this, AlterarSenha.class);
+            startActivity(intent);
+        });
+
         sair.setOnClickListener(v -> {
             logout();
         });
