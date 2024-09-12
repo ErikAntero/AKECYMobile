@@ -36,7 +36,7 @@ public class EsqueceuSenha3 extends AppCompatActivity {
         checkMinLength = findViewById(R.id.checkMinLength);
         checkUppercase = findViewById(R.id.checkUppercase);
         checkSymbol = findViewById(R.id.checkSymbol);
-        checkNumber = findViewById(R.id.checkNumber);
+        checkNumber = findViewById(R.id.checklist_numero_imagem_as);
 
         novaSenhaEditText.addTextChangedListener(new TextWatcher() {
             @Override

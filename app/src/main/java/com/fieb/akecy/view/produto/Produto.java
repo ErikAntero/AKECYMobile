@@ -43,7 +43,7 @@ public class Produto extends AppCompatActivity {
         descricaoCompleta = findViewById(R.id.descricao_completa);
         tamanhosDisponiveis = findViewById(R.id.tamanhos2);
         preco = findViewById(R.id.preco);
-        voltar = findViewById(R.id.voltar);
+        voltar = findViewById(R.id.voltar_ed);
         favoritoButton = findViewById(R.id.favorito_button); // Certifique-se de que você tem esse botão no seu layout
 
         int idProduto = getIntent().getIntExtra("idProduto", -1);

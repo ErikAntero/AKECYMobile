@@ -45,4 +45,12 @@
     <string name="place_holder"> Place holder </string>
     <string name="sizes"> Tamanhos Dísponiveis </string>
     <string name="no_favorite"> Nenhum produto favoritado </string>
+    <string name="actual_password"> Senha atual </string>
+    <string name="confirm_new_password"> Confirme a nova senha </string>
+    <string name="insert_name"> Insira seu Nome Completo </string>
+    <string name="insert_email"> Insira seu Email </string>
+    <string name="insert_cpf"> Insira seu CPF </string>
+    <string name="insert_date_of_birth"> Insira sua Data de Nascimento </string>
+    <string name="insert_number"> Insira seu Telefone </string>
+
 </resources>

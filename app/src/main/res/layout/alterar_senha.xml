@@ -3,54 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:background="@drawable/img_background"
-    android:visibility="visible"
-    tools:context=".view.usuario.MainActivity">
-
-    <Button
-        android:id="@+id/esque3_btnContinuar"
-        android:layout_width="240dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="85dp"
-        android:layout_marginBottom="170dp"
-        android:backgroundTint="#FFA600"
-        android:text="@string/save_new_password"
-        android:textColor="#FFFFFF"
-        android:textSize="23sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:strokeColor="#FFA600"
-        app:strokeWidth="2dp"
-        tools:ignore="TextContrastCheck,TextSizeCheck" />
-
-    <TextView
-        android:id="@+id/esque3_texto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="15dp"
-        android:text="@string/esque3_text"
-        android:textColor="#DADADA"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque3_voltar" />
-
-    <TextView
-        android:id="@+id/esque3_texto2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/esque3_text2"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque3_texto" />
+    android:layout_height="match_parent">
 
     <ImageButton
-        android:id="@+id/esque3_voltar"
+        android:id="@+id/voltar_as"
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="20dp"
@@ -63,32 +20,7 @@
         app:srcCompat="@drawable/ic_back" />
 
     <EditText
-        android:id="@+id/esque3_senha"
-        android:layout_width="330dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="210dp"
-        android:layout_marginEnd="50dp"
-        android:autofillHints="password"
-        android:background="@drawable/config_rounded_border"
-        android:backgroundTint="#FFFFFF"
-        android:drawableStart="@drawable/ic_password"
-        android:drawablePadding="15dp"
-        android:ems="10"
-        android:gravity="start"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/esque3_senha2"
+        android:id="@+id/confirmar_nova_senha_as"
         android:layout_width="330dp"
         android:layout_height="48dp"
         android:layout_marginStart="50dp"
@@ -101,49 +33,58 @@
         android:drawablePadding="15dp"
         android:ems="10"
         android:gravity="start"
-        android:hint="@string/confirm_password"
+        android:hint="@string/confirm_new_password"
         android:inputType="textPassword"
         android:padding="10dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.842"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutCheckList" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_checklist_as" />
 
     <TextView
-        android:id="@+id/esque3_erro_senha"
+        android:id="@+id/texto_as"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="287dp"
-        android:textColor="#FF3333"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/esque3_text2"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/voltar_as" />
 
-    <TextView
-        android:id="@+id/esque3_erro_senha2"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/salvar_as"
+        android:layout_width="240dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textColor="#FF3333"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="85dp"
+        android:layout_marginBottom="120dp"
+        android:backgroundTint="#FFA600"
+        android:text="@string/save_new_password"
+        android:textColor="#FFFFFF"
+        android:textSize="23sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque3_senha2" />
+        app:strokeColor="#FFA600"
+        app:strokeWidth="2dp"
+        tools:ignore="TextContrastCheck,TextSizeCheck" />
 
     <LinearLayout
-        android:id="@+id/layoutCheckList"
+        android:id="@+id/layout_checklist_as"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="10dp"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/esque3_senha">
+        app:layout_constraintTop_toBottomOf="@+id/nova_senha_as">
 
         <LinearLayout
-            android:id="@+id/layoutCheckMinLength"
+            android:id="@+id/checklist_minimo_as"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -151,7 +92,7 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:id="@+id/checkMinLength"
+                android:id="@+id/checklist_minimo_imagem_as"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="@string/check_min_length"
@@ -159,7 +100,7 @@
                 android:visibility="visible" />
 
             <TextView
-                android:id="@+id/checkMinLengthText"
+                android:id="@+id/checklist_minimo_texto_as"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -168,7 +109,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layoutCheckUppercase"
+            android:id="@+id/checklist_maiuscula_as"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -193,7 +134,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layoutCheckSymbol"
+            android:id="@+id/checklist_simbolo_as"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -209,7 +150,7 @@
                 android:visibility="visible" />
 
             <TextView
-                android:id="@+id/checkSymbolText"
+                android:id="@+id/checklist_simbolo_texto_as"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -218,7 +159,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layoutCheckNumber"
+            android:id="@+id/checklist_numero_as"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -243,4 +184,53 @@
         </LinearLayout>
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/nova_senha_as"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:autofillHints="password"
+        android:background="@drawable/config_rounded_border"
+        android:backgroundTint="#FFFFFF"
+        android:drawableStart="@drawable/ic_password"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:gravity="start"
+        android:hint="@string/new_password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.789"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/senha_atual_as" />
+
+    <EditText
+        android:id="@+id/senha_atual_as"
+        android:layout_width="330dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:autofillHints="password"
+        android:background="@drawable/config_rounded_border"
+        android:backgroundTint="#FFFFFF"
+        android:drawableStart="@drawable/ic_password"
+        android:drawablePadding="15dp"
+        android:ems="10"
+        android:gravity="start"
+        android:hint="@string/actual_password"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.789"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto_as" />
 </androidx.constraintlayout.widget.ConstraintLayout>

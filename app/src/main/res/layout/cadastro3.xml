@@ -171,7 +171,7 @@
             tools:ignore="UseCompoundDrawables">
 
             <ImageView
-                android:id="@+id/checkNumber"
+                android:id="@+id/checklist_numero_imagem_as"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:contentDescription="@string/check_number"
@@ -179,7 +179,7 @@
                 android:visibility="visible" />
 
             <TextView
-                android:id="@+id/checkNumberText"
+                android:id="@+id/checklist_numero_texto_as"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

@@ -35,7 +35,7 @@ public class Cadastro3 extends AppCompatActivity {
         checkMinLength = findViewById(R.id.checkMinLength);
         checkUppercase = findViewById(R.id.checkUppercase);
         checkSymbol = findViewById(R.id.checkSymbol);
-        checkNumber = findViewById(R.id.checkNumber);
+        checkNumber = findViewById(R.id.checklist_numero_imagem_as);
 
         Button cadastrarButton = findViewById(R.id.cadastro3_btnCadastrar);
         Button btnVoltar = findViewById(R.id.cadastro3_btnVoltar);
