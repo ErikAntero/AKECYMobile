@@ -43,6 +43,12 @@ public class Pesquisar extends AppCompatActivity {
     TextView limparCategoria;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        carregarProdutos(null);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pesquisar);

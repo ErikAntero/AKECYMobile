@@ -35,6 +35,12 @@ public class Novos extends AppCompatActivity {
     List<com.fieb.akecy.model.Produto> listaProdutos;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        carregarProdutos();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.novos);
