@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.fieb.akecy.R;
-import com.fieb.akecy.adapter.Produto;
+import com.fieb.akecy.adapter.ProdutoAdapter;
 import com.fieb.akecy.view.pesquisar.Pesquisar;
 import com.fieb.akecy.view.cupons.Cupons;
 import com.fieb.akecy.view.conta.Conta;
@@ -31,7 +31,7 @@ public class Novos extends AppCompatActivity {
 
     ImageView icNovos, icCupons, icPesquisar, icFavoritos, icConta;
     RecyclerView recyclerViewProdutos;
-    Produto produto;
+    ProdutoAdapter produto;
     List<com.fieb.akecy.model.Produto> listaProdutos;
 
     @Override
@@ -48,7 +48,7 @@ public class Novos extends AppCompatActivity {
         recyclerViewProdutos = findViewById(R.id.recyclerViewProdutos);
         recyclerViewProdutos.setLayoutManager(new LinearLayoutManager(this));
         listaProdutos = new ArrayList<>();
-        produto = new Produto(listaProdutos);
+        produto = new ProdutoAdapter(listaProdutos);
         recyclerViewProdutos.setAdapter(produto);
 
         carregarProdutos();

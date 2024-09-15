@@ -13,6 +13,7 @@ import com.fieb.akecy.view.favoritos.Favoritos;
 import com.fieb.akecy.view.novos.Novos;
 import com.fieb.akecy.view.pesquisar.Pesquisar;
 import com.fieb.akecy.view.cupons.Cupons;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.Toast;
@@ -20,6 +21,11 @@ import android.widget.Toast;
 import com.fieb.akecy.controller.UsuarioController;
 import com.fieb.akecy.model.Usuario;
 import com.fieb.akecy.view.usuario.MainActivity;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class Conta extends AppCompatActivity {
 
@@ -92,6 +98,11 @@ public class Conta extends AppCompatActivity {
             overridePendingTransition(0, 0);
         });
 
+        editar.setOnClickListener(v -> {
+            Intent intent = new Intent(Conta.this, EditarDados.class);
+            startActivity(intent);
+        });
+
         alterar.setOnClickListener(v -> {
             Intent intent = new Intent(Conta.this, AlterarSenha.class);
             startActivity(intent);
@@ -113,5 +124,44 @@ public class Conta extends AppCompatActivity {
         Intent intent = new Intent(Conta.this, MainActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        carregarDadosDoUsuario();
+    }
+
+    private void carregarDadosDoUsuario() {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        String userEmail = sharedPreferences.getString("userEmail", "");
+
+        UsuarioController usuarioController = new UsuarioController();
+        Usuario usuario = usuarioController.buscarUsuarioPorEmail(this, userEmail);
+
+        if (usuario != null) {
+            nome.setText(usuario.getNome());
+            email.setText(usuario.getEmail());
+            cpf.setText(usuario.getCpf());
+            SimpleDateFormat formatoOriginal = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            SimpleDateFormat formatoDesejado = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+            try {
+                Date dataNasc = formatoOriginal.parse(usuario.getDataNasc());
+                String dataNascFormatada = formatoDesejado.format(dataNasc);
+                dataDeNascimento.setText(dataNascFormatada);
+            } catch (ParseException e) {
+                e.printStackTrace();
+                dataDeNascimento.setText(usuario.getDataNasc());
+            }
+            telefone.setText(usuario.getTelefone());
+            if (usuario.getSexo() == null) {
+                sexo.setText("-");
+            } else {
+                sexo.setText(usuario.getSexo());
+            }
+        } else {
+            Toast.makeText(Conta.this, "Erro ao recuperar dados do usuário", Toast.LENGTH_SHORT).show();
+        }
     }
 }

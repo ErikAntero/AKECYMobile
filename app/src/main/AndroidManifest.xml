@@ -40,7 +40,8 @@
         <activity android:name=".view.favoritos.Favoritos"/>
         <activity android:name=".view.conta.Conta"/>
         <activity android:name=".view.conta.AlterarSenha"/>
-        <activity android:name=".view.produto.Produto"/>
+        <activity android:name=".view.conta.EditarDados"/>
+        <activity android:name=".view.produtoCompleto.ProdutoCompleto"/>
     </application>
 
 </manifest>

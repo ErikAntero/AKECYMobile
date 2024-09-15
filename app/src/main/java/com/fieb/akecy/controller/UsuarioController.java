@@ -28,15 +28,17 @@ public class UsuarioController {
             String dataCadastroFormatada = dateFormat.format(dataAtual);
 
             PreparedStatement pst = ConexaoSQL.conectar(context).prepareStatement(
-                    "INSERT INTO Usuario (nome, email, senha, cpf , telefone, dataNasc, dataCadastro, nivelAcesso, statusUsuario) " +
-                            "VALUES (?, ?, ?, ?, ?, ?, ?, 'USER', 'ATIVO')");
+                    "INSERT INTO Usuario (nome, email, senha, cpf, telefone, sexo, dataNasc, dataCadastro, nivelAcesso, statusUsuario) " +
+                            "VALUES (?, ?, ?, ?, ?, ?, ?, CONVERT(smalldatetime, ?, 120), 'USER', 'ATIVO')");
+
             pst.setString(1, usuario.getNome());
             pst.setString(2, usuario.getEmail());
             pst.setString(3, usuario.getSenha());
             pst.setString(4, usuario.getCpf());
             pst.setString(5, usuario.getTelefone());
-            pst.setString(6, usuario.getDataNasc());
-            pst.setString(7, dataCadastroFormatada);
+            pst.setString(6, null);
+            pst.setString(7, usuario.getDataNasc());
+            pst.setString(8, dataCadastroFormatada);
 
             int linhasAfetadas = pst.executeUpdate();
             return linhasAfetadas > 0;
@@ -59,6 +61,7 @@ public class UsuarioController {
                 usuario.setCpf(rs.getString("cpf"));
                 usuario.setDataNasc(rs.getString("dataNasc"));
                 usuario.setTelefone(rs.getString("telefone"));
+                usuario.setSexo(rs.getString("sexo"));
                 return usuario;
             } else {
                 return null;

@@ -20,6 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.fieb.akecy.R;
 import com.fieb.akecy.api.ConexaoSQL;
 import com.fieb.akecy.controller.FavoritoController;
+import com.fieb.akecy.model.Produto;
+import com.fieb.akecy.view.produtoCompleto.ProdutoCompleto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,12 +29,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public class Produto extends RecyclerView.Adapter<Produto.ProdutoViewHolder> {
+public class ProdutoAdapter extends RecyclerView.Adapter<ProdutoAdapter.ProdutoViewHolder> {
 
     private List<com.fieb.akecy.model.Produto> listaProdutos;
     private Context context;
 
-    public Produto(List<com.fieb.akecy.model.Produto> listaProdutos) {
+    public ProdutoAdapter(List<com.fieb.akecy.model.Produto> listaProdutos) {
         this.listaProdutos = listaProdutos;
     }
 
@@ -96,7 +98,7 @@ public class Produto extends RecyclerView.Adapter<Produto.ProdutoViewHolder> {
         }
 
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, com.fieb.akecy.view.produto.Produto.class);
+            Intent intent = new Intent(context, ProdutoCompleto.class);
             intent.putExtra("idProduto", produto.getIdProduto());
             context.startActivity(intent);
         });
@@ -143,5 +145,10 @@ public class Produto extends RecyclerView.Adapter<Produto.ProdutoViewHolder> {
             Toast.makeText(context, "Erro ao verificar favorito", Toast.LENGTH_SHORT).show();
         }
         return false;
+    }
+
+    public void setListaProdutos(List<Produto> novaListaProdutos) {
+        this.listaProdutos = novaListaProdutos;
+        notifyDataSetChanged();
     }
 }

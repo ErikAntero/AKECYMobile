@@ -150,9 +150,41 @@ public class Cadastro3 extends AppCompatActivity {
         String senha1 = senhaEditText.getText().toString();
         String senha2 = senha2EditText.getText().toString();
 
-        return senha1.equals(senha2) && senha1.length() >= 7 && senha1.matches(".*[a-z].*")
-                && senha1.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?].*")
-                && senha1.matches(".*\\d.*");
-    }
+        if (senha1.isEmpty()) {
+            senhaEditText.setError("Campo obrigatório");
+            return false;
+        }
 
+        if (senha2.isEmpty()) {
+            senha2EditText.setError("Campo obrigatório");
+            return false;
+        }
+
+        if (!senha1.equals(senha2)) {
+            Toast.makeText(Cadastro3.this, "As senhas não coincidem", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (senha1.length() < 7) {
+            Toast.makeText(Cadastro3.this, "A senha deve ter pelo menos 7 caracteres", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (!senha1.matches(".*[A-Z].*")) {
+            Toast.makeText(Cadastro3.this, "A senha deve conter pelo menos uma letra maiúscula", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (!senha1.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>/?].*")) {
+            Toast.makeText(Cadastro3.this, "A senha deve conter pelo menos um símbolo especial", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if (!senha1.matches(".*\\d.*")) {
+            Toast.makeText(Cadastro3.this, "A senha deve conter pelo menos um número", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
+    }
 }

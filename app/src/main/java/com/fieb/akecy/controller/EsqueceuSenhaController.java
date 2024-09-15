@@ -3,6 +3,8 @@ package com.fieb.akecy.controller;
 import android.content.Context;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Base64;
+
 import com.fieb.akecy.api.ConexaoSQL;
 
 public class EsqueceuSenhaController {
@@ -24,9 +26,11 @@ public class EsqueceuSenhaController {
 
     public boolean atualizarSenha(Context context, String email, String novaSenha) {
         try {
+            String senhaCodificada = Base64.getEncoder().encodeToString(novaSenha.getBytes());
+
             PreparedStatement pst = ConexaoSQL.conectar(context).prepareStatement(
-                    "UPDATE Usuarios SET senha=? WHERE LOWER(email)=LOWER(?)");
-            pst.setString(1, novaSenha);
+                    "UPDATE Usuario SET senha=? WHERE LOWER(email)=LOWER(?)");
+            pst.setString(1, senhaCodificada);
             pst.setString(2, email);
             int linhasAfetadas = pst.executeUpdate();
             return linhasAfetadas > 0;

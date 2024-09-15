@@ -17,6 +17,7 @@ import com.fieb.akecy.model.Usuario;
 public class Cadastro extends AppCompatActivity {
 
     private EditText editTextNome, editTextEmail, editTextTelefone;
+    private boolean isTelefoneValido = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,11 @@ public class Cadastro extends AppCompatActivity {
             if (validateNome() && validateEmail() && validateTelefone()) {
                 telaCadastro2();
             } else {
-                Toast.makeText(Cadastro.this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show();
+                if (!validateNome() || !validateEmail() || editTextTelefone.getText().toString().trim().isEmpty()) {
+                    Toast.makeText(Cadastro.this, "Preencha todos os campos corretamente", Toast.LENGTH_SHORT).show();
+                } else if (!isTelefoneValido) {
+                    Toast.makeText(getApplicationContext(), "Telefone inválido. Formato esperado: (X) XXXXX-XXXX", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -108,11 +113,13 @@ public class Cadastro extends AppCompatActivity {
         String telefone = editTextTelefone.getText().toString().trim();
         if (telefone.isEmpty()) {
             editTextTelefone.setError("Campo obrigatório");
+            isTelefoneValido = false;
             return false;
-        } else if (!telefone.matches("\\(\\d{2}\\) \\d \\d{4}-\\d{4}")) {
-            editTextTelefone.setError("Telefone inválido. Formato: (XX) X XXXX-XXXX");
+        } else if (telefone.length() < 15) {
+            isTelefoneValido = false;
             return false;
         } else {
+            isTelefoneValido = true;
             return true;
         }
     }
@@ -171,7 +178,6 @@ public class Cadastro extends AppCompatActivity {
                 formatted.append(phone.charAt(2));
             }
             if (phone.length() >= 4) {
-                formatted.append(" ");
                 formatted.append(phone.substring(3, Math.min(7, phone.length())));
             }
             if (phone.length() > 7) {

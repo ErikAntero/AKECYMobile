@@ -53,5 +53,15 @@
     <string name="insert_date_of_birth"> Insira sua Data de Nascimento </string>
     <string name="insert_number"> Insira seu Telefone </string>
     <string name="passwords_do_not_match"> As senhas não coincidem </string>
-
+    <string name="search_products"> Pesquisar produtos </string>
+    <string name="masculine"> Masculino </string>
+    <string name="feminine"> Feminino </string>
+    <string name="children"> Infantil </string>
+    <string name="accessories"> Acessórios </string>
+    <string name="equipment"> Equipamentos </string>
+    <string name="balls"> Bolas </string>
+    <string name="categories"> Categorias </string>
+    <string name="erase"> Limpar Categoria </string>
+    <string name="save_data"> Salvar dados </string>
+    <string name="not_inform"> Prefiro não informar </string>
 </resources>

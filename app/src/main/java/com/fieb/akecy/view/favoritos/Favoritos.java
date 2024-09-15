@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.fieb.akecy.R;
-import com.fieb.akecy.adapter.Produto;
+import com.fieb.akecy.adapter.ProdutoAdapter;
 import com.fieb.akecy.api.ConexaoSQL;
 import com.fieb.akecy.view.conta.Conta;
 import com.fieb.akecy.view.cupons.Cupons;
@@ -33,7 +33,7 @@ public class Favoritos extends AppCompatActivity {
     ImageView icNovos, icCupons, icPesquisar, icFavoritos, icConta;
 
     RecyclerView recyclerViewProdutos;
-    Produto produtoAdapter;
+    ProdutoAdapter produtoAdapter;
     List<com.fieb.akecy.model.Produto> listaProdutos;
 
     @Override
@@ -50,7 +50,7 @@ public class Favoritos extends AppCompatActivity {
         recyclerViewProdutos = findViewById(R.id.recyclerViewProdutos); // Certifique-se de que você tem esse RecyclerView no seu layout
         recyclerViewProdutos.setLayoutManager(new LinearLayoutManager(this));
         listaProdutos = new ArrayList<>();
-        produtoAdapter = new Produto(listaProdutos);
+        produtoAdapter = new ProdutoAdapter(listaProdutos);
         recyclerViewProdutos.setAdapter(produtoAdapter);
 
         carregarProdutosFavoritos();

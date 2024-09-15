@@ -1,4 +1,4 @@
-package com.fieb.akecy.view.produto;
+package com.fieb.akecy.view.produtoCompleto;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -22,7 +22,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Produto extends AppCompatActivity {
+public class ProdutoCompleto extends AppCompatActivity {
 
     ImageView foto1, foto2, foto3, foto4, foto5;
     TextView nome, descricao, descricaoCompleta, tamanhosDisponiveis, preco;
@@ -31,7 +31,7 @@ public class Produto extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.produto);
+        setContentView(R.layout.produto_completo);
 
         foto1 = findViewById(R.id.foto1);
         foto2 = findViewById(R.id.foto2);
