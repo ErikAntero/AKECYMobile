@@ -110,8 +110,8 @@ public class ProdutoCompleto extends AppCompatActivity {
                             produto.setIdProduto(rs.getInt("idProduto"));
                             produto.setNome(rs.getString("nome"));
                             produto.setDescricao(rs.getString("descricao"));
-                            produto.setDescricao_completa(rs.getString("descricao_completa"));
-                            produto.setTamanhos_disponiveis(rs.getString("tamanhos_disponiveis"));
+                            produto.setDescricao_completa(rs.getString("descricaoCompleta"));
+                            produto.setTamanhos_disponiveis(rs.getString("tamanhosDisponiveis"));
                             produto.setFoto1(rs.getBytes("foto1"));
                             produto.setFoto2(rs.getBytes("foto2"));
                             produto.setFoto3(rs.getBytes("foto3"));

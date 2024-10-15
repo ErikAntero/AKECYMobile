@@ -7,7 +7,7 @@
     <string name="login"> Login </string>
     <string name="register"> Cadastrar-se </string>
     <string name="name">  Nome Completo </string>
-    <string name="email"> Email </string>
+    <string name="email"> E-mail </string>
     <string name="password"> Senha </string>
     <string name="confirm_password"> Confirme a senha </string>
     <string name="new_password"> Nova senha </string>

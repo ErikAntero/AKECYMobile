@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Senha incorreta", Toast.LENGTH_SHORT).show();
                         break;
                     case 3:
-                        Toast.makeText(MainActivity.this, "Conta bloqueada", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Conta inativa", Toast.LENGTH_SHORT).show();
                         break;
                     default:
                         Toast.makeText(MainActivity.this, "Erro ao realizar o login", Toast.LENGTH_SHORT).show();

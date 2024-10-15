@@ -425,30 +425,28 @@ public class EditarDados extends AppCompatActivity {
         }
     }
 
-        private String formatPhoneNumber(String phone) {
-            phone = phone.replaceAll("\\D", "");
-            if (phone.length() > 11) {
-                phone = phone.substring(0, 11);
-            }
-
-            StringBuilder formatted = new StringBuilder();
-            if (phone.length() > 0) {
-                formatted.append("(");
-                formatted.append(phone.substring(0, Math.min(2, phone.length())));
-            }
-            if (phone.length() >= 3) {
-                formatted.append(") ");
-                formatted.append(phone.charAt(2));
-            }
-            if (phone.length() >= 4) {
-                formatted.append(phone.substring(3, Math.min(7, phone.length())));
-            }
-            if (phone.length() > 7) {
-                formatted.append("-");
-                formatted.append(phone.substring(7));
-            }
-            return formatted.toString();
+    private String formatPhoneNumber(String phone) {
+        phone = phone.replaceAll("\\D", "");
+        if (phone.length() > 11) {
+            phone = phone.substring(0, 11);
         }
+
+        StringBuilder formatted = new StringBuilder();
+        if (phone.length() > 0) {
+            formatted.append("(");
+            formatted.append(phone.substring(0, Math.min(2, phone.length())));
+            formatted.append(") ");
+        }
+        if (phone.length() >= 3) {
+            formatted.append(" ");
+            formatted.append(phone.substring(2, Math.min(6, phone.length())));
+        }
+        if (phone.length() > 6) {
+            formatted.append("-");
+            formatted.append(phone.substring(6));
+        }
+        return formatted.toString();
+    }
 
         private boolean validateAllFields() {
             return validateNome() && validateEmail() && validateDataDeNascimento()

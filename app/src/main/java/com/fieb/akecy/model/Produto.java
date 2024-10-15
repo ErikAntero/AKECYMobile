@@ -4,8 +4,8 @@ public class Produto {
     private int idProduto;
     private String nome;
     private String descricao;
-    private String descricao_completa;
-    private String tamanhos_disponiveis;
+    private String descricaoCompleta;
+    private String tamanhosDisponiveis;
     private byte[] foto1;
     private byte[] foto2;
     private byte[] foto3;
@@ -40,19 +40,19 @@ public class Produto {
     }
 
     public String getDescricao_completa() {
-        return descricao_completa;
+        return descricaoCompleta;
     }
 
     public void setDescricao_completa(String descricao_completa) {
-        this.descricao_completa = descricao_completa;
+        this.descricaoCompleta = descricao_completa;
     }
 
     public String getTamanhos_disponiveis() {
-        return tamanhos_disponiveis;
+        return tamanhosDisponiveis;
     }
 
     public void setTamanhos_disponiveis(String tamanhos_disponiveis) {
-        this.tamanhos_disponiveis = tamanhos_disponiveis;
+        this.tamanhosDisponiveis = tamanhos_disponiveis;
     }
 
     public byte[] getFoto1() {

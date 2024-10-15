@@ -175,9 +175,11 @@ public class Cadastro extends AppCompatActivity {
             }
             if (phone.length() >= 3) {
                 formatted.append(") ");
-                formatted.append(phone.charAt(2));
+                formatted.append(phone.charAt(2)); // adiciona o 0 aleatório
             }
+
             if (phone.length() >= 4) {
+                formatted.append(" "); // espaço antes do próximo bloco
                 formatted.append(phone.substring(3, Math.min(7, phone.length())));
             }
             if (phone.length() > 7) {
@@ -186,5 +188,7 @@ public class Cadastro extends AppCompatActivity {
             }
             return formatted.toString();
         }
+
+
     }
 }
