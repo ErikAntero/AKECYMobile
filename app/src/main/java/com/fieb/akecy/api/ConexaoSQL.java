@@ -18,8 +18,8 @@ public class ConexaoSQL {
 
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
 
-            conn = DriverManager.getConnection("jdbc:jtds:sqlserver://192.168.15.200:1433;" +
-                    "databaseName=AKECY;user=sa;password=@ITB123456;");
+            conn = DriverManager.getConnection("jdbc:jtds:sqlserver://AKECYBD.mssql.somee.com:1433;" +
+                    "databaseName=AKECYBD;user=arthuralvs2_SQLLogin_1;password=w79kdydnmc");
 
         } catch (SQLException e) {
             e.printStackTrace();

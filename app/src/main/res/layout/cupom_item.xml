@@ -13,32 +13,31 @@
 
     <TextView
         android:id="@+id/desconto"
-        android:layout_width="76dp"
-        android:layout_height="55dp"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/place_holder"
         android:textColor="#85C52E"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/descricao"
-        android:layout_width="145dp"
-        android:layout_height="35dp"
-        android:textColor="@color/white"
-        android:layout_marginStart="3dp"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="@string/placeholder"
+        android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/desconto"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/cashback"
-        android:layout_width="wrap_content"
+        android:layout_width="149dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="2dp"
         android:text="@string/placeholder"
         android:textColor="#AA78D6"
         app:layout_constraintStart_toEndOf="@+id/desconto"
