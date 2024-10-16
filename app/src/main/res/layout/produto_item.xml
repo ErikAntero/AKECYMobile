@@ -70,29 +70,22 @@
         app:layout_constraintStart_toEndOf="@+id/descricao_produto"
         app:layout_constraintTop_toBottomOf="@+id/preco_produto" />
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="117dp"
-        android:layout_height="121dp"
-        android:layout_marginStart="-10dp"
-        android:layout_marginTop="-10dp"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="108dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="-5dp"
+        android:layout_marginTop="-7dp"
+        android:backgroundTint="#00CD0000"
+        android:checkable="false"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:defaultFocusHighlightEnabled="false"
+        app:cornerRadius="10dp"
+        app:iconTint="#3D8E1F"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="108dp"
-            android:layout_height="114dp"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="3dp"
-            android:backgroundTint="#00CD0000"
-            app:cornerRadius="10dp"
-            app:iconTint="#3D8E1F"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:strokeColor="#000000"
-            app:strokeWidth="5dp" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="#000000"
+        app:strokeWidth="5dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

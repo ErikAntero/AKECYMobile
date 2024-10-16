@@ -82,6 +82,12 @@ public class Novos extends AppCompatActivity {
             startActivity(intent);
             overridePendingTransition(0, 0);
         });
+
+        icNovos.setOnClickListener(v -> {
+            Intent intent = new Intent(Novos.this, Novos.class);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
+        });
     }
 
     @SuppressLint("NotifyDataSetChanged")

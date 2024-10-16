@@ -51,6 +51,12 @@ public class Cupons extends AppCompatActivity {
             overridePendingTransition(0, 0);
         });
 
+        icCupons.setOnClickListener(v -> {
+            Intent intent = new Intent(Cupons.this, Cupons.class);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
+        });
+
         icPesquisar.setOnClickListener(v -> {
             Intent intent = new Intent(Cupons.this, Pesquisar.class);
             startActivity(intent);

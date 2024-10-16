@@ -80,6 +80,12 @@ public class Pesquisar extends AppCompatActivity {
             overridePendingTransition(0, 0);
         });
 
+        icPesquisar.setOnClickListener(v -> {
+            Intent intent = new Intent(Pesquisar.this, Pesquisar.class);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
+        });
+
         icFavoritos.setOnClickListener(v -> {
             Intent intent = new Intent(Pesquisar.this, Favoritos.class);
             startActivity(intent);
@@ -131,15 +137,13 @@ public class Pesquisar extends AppCompatActivity {
         });
 
         limparCategoria.setOnClickListener(v -> {
-            carregarProdutos(null);
-            containerCategorias.setVisibility(View.VISIBLE);
-            recyclerViewProdutos.setVisibility(View.GONE);
-            limparCategoria.setVisibility(View.GONE);
-
-            ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) recyclerViewProdutos.getLayoutParams();
-            params.topMargin = getResources().getDimensionPixelSize(R.dimen.marginTop_20dp);
-            recyclerViewProdutos.setLayoutParams(params);
+            Intent intent = new Intent(Pesquisar.this, Pesquisar.class);
+            startActivity(intent);
+            finish();
+            overridePendingTransition(0, 0);
         });
+
+
 
         carregarProdutos(null);
         recyclerViewProdutos.setVisibility(View.GONE);

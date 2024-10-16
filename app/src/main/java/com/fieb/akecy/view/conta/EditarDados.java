@@ -435,15 +435,19 @@ public class EditarDados extends AppCompatActivity {
         if (phone.length() > 0) {
             formatted.append("(");
             formatted.append(phone.substring(0, Math.min(2, phone.length())));
-            formatted.append(") ");
         }
         if (phone.length() >= 3) {
-            formatted.append(" ");
-            formatted.append(phone.substring(2, Math.min(6, phone.length())));
+            formatted.append(") ");
+            formatted.append(phone.charAt(2)); // adiciona o 0 aleatório
         }
-        if (phone.length() > 6) {
+
+        if (phone.length() >= 4) {
+            formatted.append(" "); // espaço antes do próximo bloco
+            formatted.append(phone.substring(3, Math.min(7, phone.length())));
+        }
+        if (phone.length() > 7) {
             formatted.append("-");
-            formatted.append(phone.substring(6));
+            formatted.append(phone.substring(7));
         }
         return formatted.toString();
     }

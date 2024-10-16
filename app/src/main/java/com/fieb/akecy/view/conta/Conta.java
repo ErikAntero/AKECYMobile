@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.fieb.akecy.R;
+import com.fieb.akecy.view.cupons.CuponsCashback;
 import com.fieb.akecy.view.favoritos.Favoritos;
 import com.fieb.akecy.view.novos.Novos;
 import com.fieb.akecy.view.pesquisar.Pesquisar;
@@ -76,6 +77,12 @@ public class Conta extends AppCompatActivity {
 
         icNovos.setOnClickListener(v -> {
             Intent intent = new Intent(Conta.this, Novos.class);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
+        });
+
+        icConta.setOnClickListener(v -> {
+            Intent intent = new Intent(Conta.this, Conta.class);
             startActivity(intent);
             overridePendingTransition(0, 0);
         });

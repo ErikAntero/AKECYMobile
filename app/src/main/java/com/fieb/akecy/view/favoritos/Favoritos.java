@@ -78,6 +78,12 @@ public class Favoritos extends AppCompatActivity {
             startActivity(intent);
             overridePendingTransition(0, 0);
         });
+
+        icFavoritos.setOnClickListener(v -> {
+            Intent intent = new Intent(Favoritos.this, Favoritos.class);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
+        });
     }
 
     private void carregarProdutosFavoritos() {
