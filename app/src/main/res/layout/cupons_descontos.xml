@@ -164,7 +164,7 @@
         android:id="@+id/cupons_descontos_recentes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="14dp"
         android:text="@string/recent"
         android:textColor="#cdcdcd"
@@ -176,7 +176,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:layout_marginEnd="35dp"
+        android:layout_marginEnd="20dp"
         android:text="@string/discounts"
         android:textColor="#FFA600"
         app:layout_constraintEnd_toEndOf="parent"
@@ -193,39 +193,6 @@
         app:layout_constraintStart_toEndOf="@+id/cupons_descontos_recentes"
         app:layout_constraintTop_toBottomOf="@+id/cupons_descontos_filtrar" />
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="100dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="2dp"
-        android:background="#CDCDCD"
-        android:rotation="-360"
-        android:rotationX="-360"
-        android:rotationY="-360"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cupons_descontos_recentes" />
-
-    <View
-        android:id="@+id/view3"
-        android:layout_width="133dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="250dp"
-        android:layout_marginTop="2dp"
-        android:background="#FFA600"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cupons_descontos_descontos" />
-
-    <View
-        android:id="@+id/view4"
-        android:layout_width="100dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="2dp"
-        android:background="#CDCDCD"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cupons_descontos_cashback" />
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -233,7 +200,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintTop_toBottomOf="@+id/view2">
+        app:layout_constraintTop_toBottomOf="@+id/cupons_descontos_recentes">
 
         <LinearLayout
             android:id="@+id/container_cupons_descontos"

@@ -90,12 +90,11 @@ public class Novos extends AppCompatActivity {
         });
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     private void carregarProdutos() {
         Connection conn = ConexaoSQL.conectar(this);
         if (conn != null) {
             try {
-                String query = "SELECT * FROM Produto WHERE statusProd = 'ATIVO' ORDER BY idProduto DESC";
+                String query = "SELECT * FROM Produto WHERE statusProd = 'ATIVO' ORDER BY idProduto DESC OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY";
                 PreparedStatement stmt = conn.prepareStatement(query);
                 ResultSet rs = stmt.executeQuery();
 
