@@ -113,7 +113,7 @@ public class CuponsCashback extends AppCompatActivity {
         List<Cupom> cuponsCashback = new ArrayList<>();
         try (Connection conn = ConexaoSQL.conectar(this)) {
             if (conn != null) {
-                String query = "SELECT * FROM Cupom WHERE cashback IS NOT NULL ORDER BY idCupom DESC";
+                String query = "SELECT * FROM Cupom WHERE cashback IS NOT NULL AND statusCupom = 'ATIVO' ORDER BY idCupom DESC";
                 try (Statement stmt = conn.createStatement();
                      ResultSet rs = stmt.executeQuery(query)) {
                     while (rs.next()) {

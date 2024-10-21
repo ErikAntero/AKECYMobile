@@ -6,6 +6,7 @@ public class Cupom {
     private String descricao;
     private String cashback;
     private String codigo;
+    private String statusCupom;
 
     public int getIdCupom() {
         return idCupom;
@@ -45,5 +46,11 @@ public class Cupom {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+    public String getStatusCupom() {
+        return statusCupom;
+    }
+    public void setStatusCupom(String statusCupom) {
+        this.statusCupom = statusCupom;
     }
 }

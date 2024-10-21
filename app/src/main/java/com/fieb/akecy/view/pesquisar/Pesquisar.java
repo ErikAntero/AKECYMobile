@@ -74,14 +74,14 @@ public class Pesquisar extends AppCompatActivity {
             overridePendingTransition(0, 0);
         });
 
-        icCupons.setOnClickListener(v -> {
-            Intent intent = new Intent(Pesquisar.this, Cupons.class);
-            startActivity(intent);
-            overridePendingTransition(0, 0);
+        icPesquisar.setOnClickListener(v -> {
+         Intent intent = new Intent(Pesquisar.this, Pesquisar.class);
+         startActivity(intent);
+         overridePendingTransition(0, 0);
         });
 
-        icPesquisar.setOnClickListener(v -> {
-            Intent intent = new Intent(Pesquisar.this, Pesquisar.class);
+        icCupons.setOnClickListener(v -> {
+            Intent intent = new Intent(Pesquisar.this, Cupons.class);
             startActivity(intent);
             overridePendingTransition(0, 0);
         });
@@ -142,8 +142,6 @@ public class Pesquisar extends AppCompatActivity {
             finish();
             overridePendingTransition(0, 0);
         });
-
-
 
         carregarProdutos(null);
         recyclerViewProdutos.setVisibility(View.GONE);

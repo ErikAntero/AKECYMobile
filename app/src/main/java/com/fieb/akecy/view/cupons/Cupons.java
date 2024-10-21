@@ -113,7 +113,7 @@ public class Cupons extends AppCompatActivity {
         List<Cupom> cupons = new ArrayList<>();
         try (Connection conn = ConexaoSQL.conectar(this)) {
             if (conn != null) {
-                String query = "SELECT * FROM Cupom ORDER BY idCupom DESC";
+                String query = "SELECT * FROM Cupom WHERE statusCupom = 'ATIVO' ORDER BY idCupom DESC";
                 try (Statement stmt = conn.createStatement();
                      ResultSet rs = stmt.executeQuery(query)) {
                     while (rs.next()) {

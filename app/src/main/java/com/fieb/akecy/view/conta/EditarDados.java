@@ -143,6 +143,8 @@ public class EditarDados extends AppCompatActivity {
         }
     }
 
+// ... other code ...
+
     private boolean atualizarUsuarioNoBancoDeDados(Usuario usuario) {
         try (Connection conn = ConexaoSQL.conectar(this)) {
             if (conn != null) {
@@ -151,7 +153,20 @@ public class EditarDados extends AppCompatActivity {
                     stmt.setString(1, usuario.getNome());
                     stmt.setString(2, usuario.getCpf());
                     stmt.setString(3, usuario.getTelefone());
-                    stmt.setString(4, usuario.getDataNasc());
+
+                    // Formata a data de nascimento para o formato do banco de dados (yyyy-MM-dd)
+                    SimpleDateFormat formatoTela = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+                    SimpleDateFormat formatoBanco = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                    try {
+                        Date dataNasc = formatoTela.parse(usuario.getDataNasc());
+                        String dataNascFormatada = formatoBanco.format(dataNasc);
+                        stmt.setString(4, dataNascFormatada);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                        // Lidar com o erro de parse, talvez exibir uma mensagem para o usuário
+                        return false;
+                    }
+
                     stmt.setString(5, usuario.getSexo());
                     stmt.setString(6, usuario.getEmail());
 
@@ -165,6 +180,8 @@ public class EditarDados extends AppCompatActivity {
         }
         return false;
     }
+
+// ... other code ...
 
     private class MyTextWatcher implements TextWatcher {
 

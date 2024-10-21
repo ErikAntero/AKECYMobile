@@ -118,9 +118,7 @@ public class CuponsDescontos extends AppCompatActivity {
         List<Cupom> cuponsDesconto = new ArrayList<>();
         try (Connection conn = ConexaoSQL.conectar(this)) {
             if (conn != null) {
-                String query = "SELECT * FROM Cupom " +
-                        "WHERE desconto LIKE 'R$% OFF' " +
-                        "ORDER BY CAST(SUBSTRING(desconto, 3, LEN(desconto) - 5) AS INT) DESC";
+                String query = "SELECT * FROM Cupom WHERE desconto LIKE 'R$% OFF' AND statusCupom = 'ATIVO' ORDER BY CAST(SUBSTRING(desconto, 3, LEN(desconto) - 5) AS INT) DESC";
 
                 try (Statement stmt = conn.createStatement();
                      ResultSet rs = stmt.executeQuery(query)) {
